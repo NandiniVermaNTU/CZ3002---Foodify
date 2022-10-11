@@ -1,0 +1,55 @@
+.logo{
+  margin-left: 2rem;
+  margin-top: 12px;
+  margin-bottom: -15px;
+}
+
+.hamburger-menu {
+  font-size: 30px;
+  position: relative;
+}
+
+.fa-cross-icon {
+  color: black;
+  margin-left: 106rem;
+  margin-top: -5.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.fa-bars-icon {
+  color: black;
+  margin-left: 106rem;
+  margin-top: -5.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.navbar-mobile {
+  background-color: #ffdacc;
+  text-align: right;
+  margin-left: -2rem;
+  margin-bottom: 1rem;
+}
+.navbar-ul-mobile {
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.navbar-list-mobile {
+  list-style-type: none;
+  display: block;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+.navbar-items-mobile {
+  text-decoration: none;
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.navbar-list-mobile:hover {
+  background-color: white;
+  border-radius: 0.4rem;
+}
