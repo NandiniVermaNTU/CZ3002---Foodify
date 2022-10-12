@@ -1,7 +1,9 @@
 .logo{
-  margin-left: 2rem;
-  margin-top: 12px;
-  margin-bottom: -15px;
+  width: 26%;
+  max-width: 100%; 
+  height: 26%;
+  /* display: flex; */
+  margin-bottom: -1.25rem;
 }
 
 .hamburger-menu {
@@ -11,24 +13,25 @@
 
 .fa-cross-icon {
   color: black;
-  margin-left: 106rem;
+  margin-left: 108rem;
   margin-top: -5.5rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 3rem;
 }
 
 .fa-bars-icon {
   color: black;
-  margin-left: 106rem;
+  margin-left: 108rem;
   margin-top: -5.5rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 3rem;
 }
 
 .navbar-mobile {
   background-color: #ffdacc;
   text-align: right;
-  margin-left: -2rem;
   margin-bottom: 1rem;
+  margin-right: -82.15rem;
 }
+
 .navbar-ul-mobile {
   overflow: hidden;
   display: inline-block;

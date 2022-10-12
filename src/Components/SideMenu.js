@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../ComponentsCSS/SideMenu.css";
+import logo from "../Images/FoodifyLogo.png";
 
 import { NavLink } from "react-router-dom";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -20,7 +21,7 @@ function Navbar() {
 
   return (
         <div className="logo">
-          LOGO
+          <img src={logo} alt="Foodify-Logo" className="logo" />
         <div
           className="hamburger-menu"
           onClick={() => {
