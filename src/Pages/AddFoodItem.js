@@ -18,8 +18,6 @@ export default function AddFoodItem() {
     return (
         <>
         <div class="px-4">
-            <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
-
             <form class="bg-white px-8 pt-6 pb-8 mb-4">
                 <div class="mb-6">
                     <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">Food item</label>

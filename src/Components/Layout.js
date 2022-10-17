@@ -11,7 +11,7 @@ import logo from "../Images/FoodifyLogo.png";
 export default function Layout({ preview, children }) {
   return (
     <>
-     <div className="min-h-screen">
+     <div>
       {/* Foodify Logo */}
         <div >
           <img src={logo} alt="Foodify-Logo" className="logo" />
