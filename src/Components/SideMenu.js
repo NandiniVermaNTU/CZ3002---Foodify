@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../ComponentsCSS/SideMenu.css";
-import logo from "../Images/FoodifyLogo.png";
 
 import { NavLink } from "react-router-dom";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -15,13 +14,12 @@ let activeStyle = {
   transition: "all 0.2s linear",
 };
 
-function Navbar() {
+function SideMenu() {
 
     const [expandNavBar, setExpandNavBar] = useState(false);
 
   return (
         <div className="logo">
-          <img src={logo} alt="Foodify-Logo" className="logo" />
         <div
           className="hamburger-menu"
           onClick={() => {
@@ -154,4 +152,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default SideMenu;
