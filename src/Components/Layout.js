@@ -10,7 +10,7 @@ import logo from "../Images/FoodifyLogo.png";
 
 export default function Layout({ preview, children }) {
   return (
-    <>
+    <div>
      <div>
       {/* Foodify Logo */}
         <div >
@@ -31,11 +31,11 @@ export default function Layout({ preview, children }) {
 
         <div id="back-to-top-anchor" color="red"></div>
         <SideMenu />
-        <div>
+        <div class="bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">
           <main>{children}</main>
         </div>
       </div>
       </div>
-    </>
+    </div>
   );
 }
