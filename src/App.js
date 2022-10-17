@@ -14,6 +14,9 @@ import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
 import HomeBefore from "./Pages/HomeBefore";
 import Marketplace from "./Pages/Marketplace";
+import Profile from "./Pages/Profile";
+import EditProfile from "./Pages/EditProfile";
+
 
 function App() {
 
@@ -29,6 +32,8 @@ function App() {
     <Route path="/addfooditem" element={<AddFoodItem/>}></Route>
     <Route path="/postitem" element={<PostItem/>}></Route>
     <Route path="/marketplace" element={<Marketplace />}> </Route>
+    <Route path="/profile" element={<Profile />}> </Route>
+    <Route path="/editprofile" element={<EditProfile />}> </Route>
     </Routes>
     <Footer />
     </>
