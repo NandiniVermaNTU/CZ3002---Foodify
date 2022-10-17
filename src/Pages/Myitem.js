@@ -5,6 +5,7 @@ import "../PagesCSS/Myitem.css"
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
 import Layout from "../Components/Layout";
+import Sidebar from "../Components/Sidebar";
 
 let activeStyle = {
     color: "#80De80",
@@ -14,9 +15,9 @@ let activeStyle = {
 function Myitem() {
     const navigate = useNavigate();
 
-    const navigateToContacts = () => {
+    const navigateToAddFoodItem = () => {
       // 👇️ navigate to /contacts
-      navigate('/contacts');
+      navigate('/addfooditem');
     };
 
   return (
@@ -53,7 +54,8 @@ function Myitem() {
             </ul>
         </nav>
  */}
-    <Layout preview={true}>
+    <>
+    {/* <Sidebar></Sidebar> */}
     {/* <div className="flex relative">
           <img
             class="img-responsive"
@@ -64,14 +66,16 @@ function Myitem() {
           <h1 className="flex items-start text-black">Foodify</h1>
           <p className="flex items-center">More food? Share it!</p>
         </div> */}
-
         <div class="w-full px-8 pt-10 item-center">
             <div class="border rounded-lg border pb-6 border-gray-200 dark:border-gray-700 ">
                 <div class="flex items-center border-b border-gray-200 dark:border-gray-700  justify-between px-6 py-3">
                     <p tabindex="0" class="focus:outline-none text-sm lg:text-xl font-semibold leading-tight text-gray-800 dark:text-white ">My Food Items</p>
-                    <button class="focus:outline-none focus:ring-2  bg-rose-400 focus:ring-rose-700 focus:bg-rose-500 dark:focus:bg-rose-500 flex cursor-pointer items-center justify-center px-3 py-2.5 border rounded border-rose-100 dark:border-rose-800 ">
-                        <p  class="focus:outline-none text-xs md:text-sm leading-none text-white dark:text-gray-200 ">+ Add food item</p>
-                    </button>
+                    <Link href={'/addfooditem'} passHref>
+                        <button class="focus:outline-none focus:ring-2  bg-rose-400 focus:ring-rose-700 focus:bg-rose-500 dark:focus:bg-rose-500 flex cursor-pointer items-center justify-center px-3 py-2.5 border rounded border-rose-100 dark:border-rose-800 "
+                                onClick={navigateToAddFoodItem}>
+                            <p  class="focus:outline-none text-xs md:text-sm leading-none text-white dark:text-gray-200 ">+ Add food item</p>
+                        </button>
+                    </Link>
                 </div>
                 <div class="px-6 pt-6 overflow-x-auto">
                     <table class="w-full whitespace-nowrap">
@@ -94,14 +98,14 @@ function Myitem() {
                                         </div>
                                     </div>
                                 </td>
-                                <td class="pl-16">
+                                {/* <td class="pl-16">
                                     <div>
                                         <p class="text-sm font-semibold leading-none text-right text-gray-800 dark:text-white ">17/10/2022</p>
                                         <div class="flex items-center justify-center px-2 py-1 mt-2 bg-green-100 rounded-full">
                                             <p class="text-xs leading-3 text-green-700">Not opened</p>
                                         </div>
                                     </div>
-                                </td>
+                                </td> */}
                             </tr>
 
                             <tr tabindex="0" class="focus:outline-none">
@@ -122,14 +126,14 @@ function Myitem() {
                                         </div>
                                     </div>
                                 </td>
-                                <td class="pl-16">
+                                {/* <td class="pl-16">
                                     <div>
                                         <p class="text-sm font-semibold leading-none text-right text-gray-800 dark:text-white">20/10/2022</p>
                                         <div class="flex items-center justify-center px-2 py-1 mt-2 bg-orange-100 rounded-full">
                                             <p class="text-xs leading-3 text-orange-700">Opened</p>
                                         </div>
                                     </div>
-                                </td>
+                                </td> */}
                             </tr>
                             
                         </tbody>
@@ -199,7 +203,7 @@ function Myitem() {
 
 
 
-      </Layout>
+      </>
     </>
   );
 }

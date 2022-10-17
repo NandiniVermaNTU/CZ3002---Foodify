@@ -5,7 +5,6 @@ import "../PagesCSS/Myitem.css"
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
 import Layout from "../Components/Layout";
-import Datepicker from 'flowbite-datepicker/Datepicker';
 
 
 let activeStyle = {
@@ -14,7 +13,7 @@ let activeStyle = {
   };
 
 
-export default function AddFoodItem() {
+export default function PostItem() {
     return (
         <>
         <div class="px-4">

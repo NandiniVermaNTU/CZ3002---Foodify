@@ -29,7 +29,7 @@ export default function Layout({ preview, children }) {
         </div> */}
 
         <div id="back-to-top-anchor" color="red"></div>
-        {/* <SideMenu /> */}
+        {/* <Sidebar /> */}
         <div>
           <main>{children}</main>
         </div>
