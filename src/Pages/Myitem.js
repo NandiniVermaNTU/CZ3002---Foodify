@@ -54,7 +54,17 @@ function Myitem() {
         </nav>
  */}
     <Layout preview={true}>
-        
+    {/* <div className="flex relative">
+          <img
+            class="img-responsive"
+            src={pic1}
+            alt="Foodify background"
+            className="home-img1"
+          />
+          <h1 className="flex items-start text-black">Foodify</h1>
+          <p className="flex items-center">More food? Share it!</p>
+        </div> */}
+
         <div class="w-full px-8 pt-10 item-center">
             <div class="border rounded-lg border pb-6 border-gray-200 dark:border-gray-700 ">
                 <div class="flex items-center border-b border-gray-200 dark:border-gray-700  justify-between px-6 py-3">

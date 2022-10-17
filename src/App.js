@@ -7,12 +7,13 @@ import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import Myitem from './Pages/Myitem';
 import AddFoodItem from './Pages/AddFoodItem'
+import Layout from './Components/Layout';
 
 import Home from "./Pages/Home";
 
 function App() {
   return (<>
-    <SideMenu />
+    <Layout />
     <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/signin" element={<Login/>}></Route>
