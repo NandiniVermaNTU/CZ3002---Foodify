@@ -39,57 +39,55 @@ function Myitem() {
                             <tr tabindex="0" class="focus:outline-none flex-auto">
                                 <td>
                                     <div class="flex items-center py-5">
-                                        <div class="bg-gray-100 dark:bg-gray-800  rounded-sm p-2.5">
+                                        {/* <div class="bg-gray-100 dark:bg-gray-800  rounded-sm p-2.5">
                                            <img src="../Images/chicken-icon.jpg" alt="chicken" />
-                                        </div>
+                                        </div> */}
                                         <div class="pl-3">
                                             <div class="flex items-center text-sm leading-none">
                                                 <p class="font-semibold text-gray-800 dark:text-white pr-5">Chicken</p>
                                                 {/* <p class="text-indigo-700 dark:text-indigo-400  ml-3">10/10/2022</p> */}
-                                                <div class="flex items-center justify-center py-1 bg-orange-100 rounded-full">
+                                                {/* <div class="flex items-center justify-center py-1 bg-orange-100 rounded-full">
                                                     <p class="text-xs font-semibold leading-none leading-3 text-orange-700 px-5">20/10/2022</p>
-                                                </div>
+                                                </div> */}
                                             </div>
-                                            <p class="text-xs md:text-sm leading-none text-gray-600 dark:text-gray-200  mt-2">Description of chickens here</p>
+                                            {/* <p class="text-xs md:text-sm leading-none text-gray-600 dark:text-gray-200  mt-2">Description of chickens here</p> */}
                                         </div>
                                     </div>
                                 </td>
-                                {/* <td class="pl-16">
-                                    <div>
-                                        <p class="text-sm font-semibold leading-none text-right text-gray-800 dark:text-white ">17/10/2022</p>
-                                        <div class="flex items-center justify-center px-2 py-1 mt-2 bg-green-100 rounded-full">
-                                            <p class="text-xs leading-3 text-green-700">Not opened</p>
-                                        </div>
+                                <td class="pl-16">
+                                    <div class="flex items-center justify-center py-1 bg-orange-100 rounded-full">
+                                        <p class="text-xs font-semibold leading-none leading-3 text-orange-700 px-5">17/10/2022</p>
                                     </div>
-                                </td> */}
+                                </td>
                             </tr>
-
+                            
+                            
                             <tr tabindex="0" class="focus:outline-none">
                                 <td>
                                     <div class="flex items-center py-5">
-                                        <div class="bg-gray-100 dark:bg-gray-800  rounded-sm p-2.5">
+                                        {/* <div class="bg-gray-100 dark:bg-gray-800  rounded-sm p-2.5">
                                            <img src="../Images/chicken-icon.jpg" alt="rice" />
-                                        </div>
+                                        </div> */}
                                         <div class="pl-3">
                                             <div class="flex items-center text-sm leading-none">
                                                 <p class="font-semibold text-gray-800 dark:text-white pr-5 ">Rice</p>
                                                 {/* <p class="text-indigo-700 dark:text-indigo-400 content-end px-5">10/10/2022</p> */}
-                                                <div class="flex items-center justify-center py-1 bg-orange-100 rounded-full">
+                                                {/* <div class="flex items-center justify-center py-1 bg-orange-100 rounded-full">
                                                     <p class="text-xs font-semibold leading-none leading-3 text-orange-700 px-5">17/10/2022</p>
-                                                </div>
+                                                </div> */}
                                             </div>
-                                            <p class="text-xs md:text-sm leading-none text-gray-600 dark:text-gray-200  mt-2">Description of rice here</p>
+                                            {/* <p class="text-xs md:text-sm leading-none text-gray-600 dark:text-gray-200  mt-2">Description of rice here</p> */}
                                         </div>
                                     </div>
                                 </td>
-                                {/* <td class="pl-16">
-                                    <div>
-                                        <p class="text-sm font-semibold leading-none text-right text-gray-800 dark:text-white">20/10/2022</p>
-                                        <div class="flex items-center justify-center px-2 py-1 mt-2 bg-orange-100 rounded-full">
-                                            <p class="text-xs leading-3 text-orange-700">Opened</p>
-                                        </div>
+                                <td class="pl-16">
+                                    {/* <div> */}
+                                    <div class="flex items-center justify-center py-1 bg-orange-100 rounded-full">
+                                        <p class="text-xs font-semibold leading-none leading-3 text-orange-700 px-5">17/10/2022</p>
                                     </div>
-                                </td> */}
+{/*                                         
+                                    </div> */}
+                                </td>
                             </tr>
                             
                         </tbody>
