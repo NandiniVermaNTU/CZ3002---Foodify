@@ -11,22 +11,23 @@ import logo from "../Images/FoodifyLogo.png";
 export default function Layout({ preview, children }) {
   return (
     <>
-     {/* <div className="min-h-screen"> */}
+     <div className="min-h-screen">
+      {/* Foodify Logo */}
         <div >
           <img src={logo} alt="Foodify-Logo" className="logo" />
         </div>
-      <div className="min-h-screen">
-       {/* <div className="home-section1"> */}
+      <div >
+      {/* Foodify Background Image, Headings */}
+       <div className="section1"> 
           <img
             class="img-responsive"
             src={pic1}
             alt="Foodify background"
             className="home-img1"
           />
-          
-          {/* <h1 className="home-heading1">Foodify</h1>
-          <p className="home-description1">More food? Share it!</p>
-        </div> */}
+          <h1 className="heading1">Foodify</h1>
+          <p className="description1">More food? Share it!</p>
+        </div> 
 
         <div id="back-to-top-anchor" color="red"></div>
         {/* <Sidebar /> */}
@@ -34,7 +35,7 @@ export default function Layout({ preview, children }) {
           <main>{children}</main>
         </div>
       </div>
-      <Footer />
+      </div>
     </>
   );
 }

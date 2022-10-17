@@ -21,51 +21,7 @@ function Myitem() {
     };
 
   return (
-    <>
-    {/* <Layout preview={true}></Layout>
-          <h1>
-            <title>Events Hub</title>
-          </h1> */}
-
-      {/* <div className="home-img1">
-        <picture>
-          <source
-            media="(min-width: 767px)"
-            srcSet="../../Images/myitem-bg.jpg"
-          />
-          <img
-            src="../../Images/myitem-bg.jpg"
-            // className="w-screen h-auto"
-            alt="My food item background"
-          />
-          </picture>
-        </div> */}
-{/* 
-        <nav >
-            <ul className="quick-search-ul">
-                <li className="quick-search-list">
-                    <NavLink className="quick-search-items"
-                            to="/addfooditem"
-                            style={({ isActive }) =>
-                            isActive ? activeStyle : undefined}>
-                        Add Food Item
-                    </NavLink>
-                </li>
-            </ul>
-        </nav>
- */}
-    <>
-    {/* <Sidebar></Sidebar> */}
-    {/* <div className="flex relative">
-          <img
-            class="img-responsive"
-            src={pic1}
-            alt="Foodify background"
-            className="home-img1"
-          />
-          <h1 className="flex items-start text-black">Foodify</h1>
-          <p className="flex items-center">More food? Share it!</p>
-        </div> */}
+    <div>
         <div class="w-full px-8 pt-10 item-center">
             <div class="border rounded-lg border pb-6 border-gray-200 dark:border-gray-700 ">
                 <div class="flex items-center border-b border-gray-200 dark:border-gray-700  justify-between px-6 py-3">
@@ -142,69 +98,10 @@ function Myitem() {
             </div>
         </div>
 
-{/* 
-        <label for="my-modal" class="btn modal-button">open modal</label>
-
-        <input type="checkbox" id="my-modal" class="modal-toggle" />
-        <div class="modal">
-        <div class="modal-box">
-            <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
-            <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-            <div class="modal-action">
-            <label for="my-modal" class="btn">Yay!</label>
-            </div>
-        </div>
-        </div> */}
 
 
+    </div>
 
-
-
-
-          {/* <Link href={'./additem'} passHref> */}
-            {/* <div type="button" data-modal-toggle="add-food-item" class="flex flex-col justify-center items-center bg-general-color hover:bg-rose-300 text-black font-bold py-2 px-4 border border-general-color rounded"  >
-              Add food items
-            </button> */}
-
-            {/* 
-            <button class="flex flex-col justify-center items-center bg-general-color hover:bg-rose-300 text-black font-bold py-2 px-4 border border-general-color rounded"  type="button" data-modal-toggle="add-food-item">
-              Post to market
-            </button>
-
-
-            <button class="flex flex-col justify-center items-center bg-general-color hover:bg-rose-300 text-black font-bold py-2 px-4 border border-general-color rounded"  type="button" data-modal-toggle="add-food-item">
-              Find recipes
-            </button> */}
-
-
-                           
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-          {/* </Link> */}
-
-
-
-
-
-
-
-
-
-
-      </>
-    </>
   );
 }
 

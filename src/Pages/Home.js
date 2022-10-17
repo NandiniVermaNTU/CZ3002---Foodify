@@ -20,26 +20,26 @@ function Home() {
         <p className="home-description1">More food? Share it!</p>
       </div>
       {/* Foodify purpose section */}
-      <div className="home-section2">
+      {/* <div className="home-section2">
         <div>
           <h2 className="home-heading2">
             Track your food's expiry, Sell Excess Food, Donate, Reduce Wastage.
           </h2>
           <div className="home-img2">
-            <img src={pic2} alt="Together" className="home-img2" />
+            <img src={pic2} alt="Together" className="home-img2" /> */}
             {/* to have the grey box over the 2nd image */}
-            <div className="home-section2-1"></div>
+            {/* <div className="home-section2-1"></div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Quick Searches Section */}
-      <div className="home-section3">
+      {/* <div className="home-section3">
         <h2 className="home-heading3">Quick Searches </h2>
         <div className="quick-search">
               <nav >
-                <ul className="quick-search-ul">
+                <ul className="quick-search-ul"> */}
                   {/* To Home page */}
-                  <li className="quick-search-list">
+                  {/* <li className="quick-search-list">
                     <NavLink
                       className="quick-search-items"
                       to="/howitworks"
@@ -49,10 +49,10 @@ function Home() {
                     >
                       How it Works?
                     </NavLink>
-                  </li>
+                  </li> */}
 
                   {/* To Sign In page */}
-                  <li className="quick-search-list">
+                  {/* <li className="quick-search-list">
                     <NavLink
                       className="quick-search-items"
                       to="/collectionpoint"
@@ -62,10 +62,10 @@ function Home() {
                     >
                       Nearby Food Drop Off/Collection Points
                     </NavLink>
-                  </li>
+                  </li> */}
 
                   {/* To Sign Up page */}
-                  <li className="quick-search-list">
+                  {/* <li className="quick-search-list">
                     <NavLink
                       className="quick-search-items"
                       to="/signup"
@@ -75,10 +75,10 @@ function Home() {
                     >
                       Sign Up
                     </NavLink>
-                  </li>
+                  </li> */}
 
                   {/* To Add Food Item page */}
-                  <li className="quick-search-list">
+                  {/* <li className="quick-search-list">
                     <NavLink
                       className="quick-search-items"
                       to="/recipes"
@@ -93,12 +93,8 @@ function Home() {
 
                 </ul>
               </nav>
-        </div>
-      </div>
-      {/* copyright section */}
-      <div className="home-section4">
-        <h2 className="home-heading4">@2022 Foodify. All rights reserved</h2>
-      </div>
+        </div> */}
+      {/* </div> */}
     </section>
   );
 }

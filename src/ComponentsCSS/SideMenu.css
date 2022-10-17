@@ -1,35 +1,33 @@
 .logo{
   width: 26%;
-  max-width: 100%; 
   height: 26%;
-  /* display: flex; */
-  margin-bottom: -1.25rem;
+  display: flex;
 }
 
 .hamburger-menu {
   font-size: 30px;
-  position: relative;
+  display: flex;
 }
 
 .fa-cross-icon {
   color: black;
-  margin-left: 108rem;
-  margin-top: -5.5rem;
-  margin-bottom: 3rem;
+  margin-left: 89%;
+  margin-right: auto;
+  position: absolute;
+  display: flex;
 }
 
 .fa-bars-icon {
   color: black;
-  margin-left: 108rem;
-  margin-top: -5.5rem;
-  margin-bottom: 3rem;
+  margin-left: 89%;
+  margin-right: auto;
+  position: absolute;
+  display: flex;
 }
 
 .navbar-mobile {
   background-color: #ffdacc;
   text-align: right;
-  margin-bottom: 1rem;
-  margin-right: -82.15rem;
 }
 
 .navbar-ul-mobile {
@@ -56,3 +54,57 @@
   background-color: white;
   border-radius: 0.4rem;
 }
+@media screen and (max-width:390px) {
+  .hamburger-menu {
+    font-size: 30px;
+    display: flex;
+  }
+  
+  .fa-cross-icon {
+    color: black;
+    margin-left: 89%;
+    margin-right: auto;
+    position: absolute;
+    display: flex;
+  }
+  
+  .fa-bars-icon {
+    color: black;
+    margin-left: 89%;
+    margin-right: auto;
+    position: absolute;
+    display: flex;
+  }
+  
+  .navbar-mobile {
+    background-color: #ffdacc;
+    text-align: right;
+  }
+  
+  .navbar-ul-mobile {
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 16px;
+  }
+  
+  .navbar-list-mobile {
+    list-style-type: none;
+    display: block;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+  
+  .navbar-items-mobile {
+    text-decoration: none;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  .navbar-list-mobile:hover {
+    background-color: white;
+    border-radius: 0.4rem;
+  }
+  
+}
+ 

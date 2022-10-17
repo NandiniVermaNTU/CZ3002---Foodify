@@ -55,7 +55,6 @@ export default function AddFoodItem() {
 
 
 
-
         <script src="https://unpkg.com/flowbite@{{< current_version >}}/dist/datepicker.js"></script>
 
         </>
