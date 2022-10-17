@@ -4,7 +4,16 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
-  },
-  plugins: [],
+    extend: {
+      colors: {
+        'general-color': '#ffdacc',
+      },
+    }
+  },  // no options to configure
+    variants: { // all the following default to ['responsive']
+    imageRendering: ['responsive'],
+    },
+  plugins: [
+    require('tailwindcss-image-rendering')(), // no options to configure
+  ],
 }
