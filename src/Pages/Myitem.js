@@ -26,12 +26,9 @@ function Myitem() {
             <div class="border rounded-lg border pb-6 border-gray-200 dark:border-gray-700 ">
                 <div class="flex items-center border-b border-gray-200 dark:border-gray-700  justify-between px-6 py-3">
                     <p tabindex="0" class="focus:outline-none text-sm lg:text-xl font-semibold leading-tight text-gray-800 dark:text-white ">My Food Items</p>
-                    <Link href={'/addfooditem'} passHref>
-                        <button class="focus:outline-none focus:ring-2  bg-rose-400 focus:ring-rose-700 focus:bg-rose-500 dark:focus:bg-rose-500 flex cursor-pointer items-center justify-center px-3 py-2.5 border rounded border-rose-100 dark:border-rose-800 "
-                                onClick={navigateToAddFoodItem}>
-                            <p  class="focus:outline-none text-xs md:text-sm leading-none text-white dark:text-gray-200 ">+ Add food item</p>
-                        </button>
-                    </Link>
+                    <div class="focus:outline-none focus:ring-2  bg-rose-400 focus:ring-rose-700 focus:bg-rose-500 dark:focus:bg-rose-500 flex cursor-pointer items-center justify-center px-3 py-2.5 border rounded border-rose-100 dark:border-rose-800 ">
+                        <a  class="focus:outline-none text-xs md:text-sm leading-none text-white dark:text-gray-200" href='/addfooditem'>+ Add food item</a>
+                    </div>
                 </div>
                 <div class="px-6 pt-6 overflow-x-auto">
                     <table class="w-full whitespace-nowrap">

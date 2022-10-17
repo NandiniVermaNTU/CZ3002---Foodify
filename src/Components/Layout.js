@@ -31,7 +31,7 @@ export default function Layout({ preview, children }) {
 
         <div id="back-to-top-anchor" color="red"></div>
         <SideMenu />
-        <div class="bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">
+        <div>
           <main>{children}</main>
         </div>
       </div>
