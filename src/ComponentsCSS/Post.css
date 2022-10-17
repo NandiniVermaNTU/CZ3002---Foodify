@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+ 
+
+  .Post-section1 {
+    display: grid;
+    background-color: rgb(219, 211, 211);
+    justify-content: flex;
+    position: absolute;
+    width: 96.5%;
+    height: auto;
+    border-radius: 2rem;
+    margin-left: 5rem;
+    padding-top: 2rem;
+  }
+  
+  .Post-heading1 {
+    color: rgb(59, 58, 58);
+    font-size: 2vw;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    text-align: left;
+    width: 18rem;
+    margin-left: 10rem;
+    position: relative;
+    display: flex;
+    margin-top: 2rem;
+  }
+
+  .Post-chat-icon-img1 {
+    filter: brightness(73%);
+    display: flex;
+    height: 60%;
+    margin-top: 1rem;
+    margin-left: 4500px;
+  }

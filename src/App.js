@@ -12,6 +12,7 @@ import Layout from './Components/Layout';
 import PostItem from './Pages/PostItem';
 import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
+import Marketplace from "./Pages/Marketplace";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
     <Route path="/myitem" element={<Myitem/>}></Route>
     <Route path="/addfooditem" element={<AddFoodItem/>}></Route>
     <Route path="/postitem" element={<PostItem/>}></Route>
+    <Route path="/marketplace" element={<Marketplace />}> </Route>
     </Routes>
     <Footer />
     </>
