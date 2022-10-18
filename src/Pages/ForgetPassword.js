@@ -31,12 +31,11 @@ export default function ForgetPassword() {
             ></input>
           </div>
           <div class="flex justify-center lg:justify-start mt-5 w-50">
-            <a
+            < button type="submit"
               class="text-white bg-green-300 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-2xl text-sm w-full sm:w-auto px-8 py-2.5 text-center dark:bg-teal-300 dark:hover:bg-teal-500 dark:focus:ring-teal-700 my-2"
-               href="/resetpassword"
             >
               Send Email to Reset Password 
-            </a>
+            </button>
           </div>
         </form>
       </div>
