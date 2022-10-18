@@ -21,7 +21,7 @@ export default function Login() {
         <form class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
           <div class="mb-6">
             <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">
-              Userame or Email Address:
+              Userame or Email Address*
             </label>
             <input
               id="username"
@@ -32,7 +32,7 @@ export default function Login() {
           </div>
           <div class="mb-6">
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-              Password:
+              Password*
             </label>
             <input
               id="email"
