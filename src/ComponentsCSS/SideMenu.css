@@ -8,6 +8,8 @@
   font-size: 25px;
   width: 100%;
   display: flex;
+  font-size: 30px;
+  /* display: flex; */
 }
 
 .fa-cross-icon {

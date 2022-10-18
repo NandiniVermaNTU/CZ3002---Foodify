@@ -14,7 +14,7 @@ let activeStyle = {
   transition: "all 0.2s linear",
 };
 
-function SideMenu() {
+function Navbar() {
 
     const [expandNavBar, setExpandNavBar] = useState(false);
 
@@ -150,4 +150,4 @@ function SideMenu() {
   );
 }
 
-export default SideMenu;
+export default Navbar;
