@@ -16,6 +16,7 @@ import HomeBefore from "./Pages/HomeBefore";
 import Marketplace from "./Pages/Marketplace";
 import Profile from "./Pages/Profile";
 import EditProfile from "./Pages/EditProfile";
+import ForgetPassword from "./Pages/ForgetPassword";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
     <Route path="/home" element={<Home />}></Route>
     <Route path="/signin" element={<Login/>}></Route>
     <Route path="/signup" element={<SignUp/>}></Route>
+    <Route path="/forgetpassword" element={<ForgetPassword/>}></Route>
     <Route path="/myitem" element={<Myitem/>}></Route>
     <Route path="/addfooditem" element={<AddFoodItem/>}></Route>
     <Route path="/postitem" element={<PostItem/>}></Route>
