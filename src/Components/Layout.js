@@ -16,6 +16,7 @@ export default function Layout({ preview, children }) {
         <div >
           <img src={logo} alt="Foodify-Logo" className="logo" />
         </div>
+        <SideMenu />
       <div >
       {/* Foodify Background Image, Headings */}
        <div className="section1"> 
@@ -23,14 +24,13 @@ export default function Layout({ preview, children }) {
             class="img-responsive"
             src={pic1}
             alt="Foodify background"
-            className="home-img1"
+            className="img1"
           />
           <h1 className="heading1">Foodify</h1>
           <p className="description1">More food? Share it!</p>
         </div> 
 
         <div id="back-to-top-anchor" color="red"></div>
-        {/* <Sidebar /> */}
         <div>
           <main>{children}</main>
         </div>

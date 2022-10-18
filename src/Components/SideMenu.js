@@ -19,7 +19,6 @@ function SideMenu() {
     const [expandNavBar, setExpandNavBar] = useState(false);
 
   return (
-        <div className="logo">
         <div
           className="hamburger-menu"
           onClick={() => {
@@ -147,7 +146,6 @@ function SideMenu() {
               <FontAwesomeIcon className="fa-bars-icon" icon={faBars} color="#0000" />
             </>
           )}
-        </div>
         </div>
   );
 }

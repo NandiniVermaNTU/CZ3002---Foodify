@@ -1,20 +1,19 @@
-.home-section4 {
+.footer {
     background-color: #ffdacc;
-    display: grid;
     display: grid;
     justify-content: left;
     height: 2.5rem;
-    margin-top: 36.5rem;
+    margin-top: 20rem;
     position: relative;
   }
   
-  .home-heading4 {
+  .footer-heading {
     color: black;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-size: 20px;
+    font-size: 1rem;
     width: 100%;
     text-align: left;
-    margin-top: 0.5rem;
-    margin-left: 10px;
-    position: static;
+    margin-top: 0.3rem; 
+    margin-left: 10px; 
+    position: absolute;
   }

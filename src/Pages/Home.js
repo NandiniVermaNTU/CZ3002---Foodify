@@ -15,10 +15,10 @@ function Home() {
   return (
     <section>
       {/* Foodify name section */}
-      <div className="home-section1">
+      {/* <div className="home-section1">
         <h1 className="home-heading1">Foodify</h1>
         <p className="home-description1">More food? Share it!</p>
-      </div>
+      </div> */}
       {/* Foodify purpose section */}
       {/* <div className="home-section2">
         <div>

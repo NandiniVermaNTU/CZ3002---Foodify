@@ -1,42 +1,40 @@
 .logo{
     width: 20%;
-    height: 20%;
+    height:auto;
   }
 
   .section1 {
     display:flex;
     justify-content: center;
-    position: static;
   }
 
   .img1 {
     width: 100%;
-    height: 70%;
     filter: brightness(70%);
+    margin-top: 0.2rem;
     display: flex;
-    margin-top: 2.3rem;
   }
 
   .heading1 {
+    width: 100%;
     color: white;
-    font-size: 10vw;
+    font-size: 15vw;
     font-style: oblique;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     text-align: center;
     margin-top: 2.5rem;
-    margin-left: 1rem;
-    position: absolute;
-    display: flex;
+    position: absolute; 
   }
   
   .description1 {
+    width: 100%;
     color: white;
-    font-size: 5vw;
+    font-size: 7vw;
     font-weight: 700;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 6.5rem;
     position: absolute;
-    width: 80%;
+    /* display: flex; */
   }
   

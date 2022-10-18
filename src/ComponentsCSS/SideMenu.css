@@ -5,29 +5,31 @@
 }
 
 .hamburger-menu {
-  font-size: 30px;
+  font-size: 25px;
+  width: 100%;
   display: flex;
 }
 
 .fa-cross-icon {
   color: black;
   margin-left: 89%;
-  margin-right: auto;
-  position: absolute;
+  margin-top: -2.3rem;
+  position: static;
   display: flex;
 }
 
 .fa-bars-icon {
   color: black;
   margin-left: 89%;
-  margin-right: auto;
-  position: absolute;
+  margin-top: -2.3rem;
+  position:static; 
   display: flex;
 }
 
 .navbar-mobile {
   background-color: #ffdacc;
   text-align: right;
+  margin-left: -6.8rem;
 }
 
 .navbar-ul-mobile {
@@ -39,7 +41,6 @@
 .navbar-list-mobile {
   list-style-type: none;
   display: block;
-  padding: 0.5rem 0 0.5rem 0;
 }
 
 .navbar-items-mobile {
@@ -47,64 +48,11 @@
   color: black;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 15px;
 }
 
 .navbar-list-mobile:hover {
+
   background-color: white;
   border-radius: 0.4rem;
 }
-@media screen and (max-width:390px) {
-  .hamburger-menu {
-    font-size: 30px;
-    display: flex;
-  }
-  
-  .fa-cross-icon {
-    color: black;
-    margin-left: 89%;
-    margin-right: auto;
-    position: absolute;
-    display: flex;
-  }
-  
-  .fa-bars-icon {
-    color: black;
-    margin-left: 89%;
-    margin-right: auto;
-    position: absolute;
-    display: flex;
-  }
-  
-  .navbar-mobile {
-    background-color: #ffdacc;
-    text-align: right;
-  }
-  
-  .navbar-ul-mobile {
-    overflow: hidden;
-    display: inline-block;
-    margin-right: 16px;
-  }
-  
-  .navbar-list-mobile {
-    list-style-type: none;
-    display: block;
-    padding: 0.5rem 0 0.5rem 0;
-  }
-  
-  .navbar-items-mobile {
-    text-decoration: none;
-    color: black;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-weight: bold;
-    font-size: 22px;
-  }
-  
-  .navbar-list-mobile:hover {
-    background-color: white;
-    border-radius: 0.4rem;
-  }
-  
-}
- 

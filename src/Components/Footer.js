@@ -1,12 +1,12 @@
 import React from "react";
-import "../PagesCSS/Home.css";
+import "../ComponentsCSS/Footer.css"
 
 
 export default function Footer() {
     return (
         // copyright section
-        <div className="home-section4">
-            <h2 className="home-heading4">@2022 Foodify. All rights reserved</h2>
+        <div className="footer">
+            <h2 className="footer-heading">@2022 Foodify. All rights reserved</h2>
         </div>
         )
     }
