@@ -30,6 +30,7 @@ function App() {
     <Route path="/signin" element={<Login/>}></Route>
     <Route path="/signup" element={<SignUp/>}></Route>
     <Route path="/forgetpassword" element={<ForgetPassword/>}></Route>
+    {/* <Route path="/resetpassword" element={<ResetPassword/>}></Route> */}
     <Route path="/myitem" element={<Myitem/>}></Route>
     <Route path="/addfooditem" element={<AddFoodItem/>}></Route>
     <Route path="/postitem" element={<PostItem/>}></Route>
