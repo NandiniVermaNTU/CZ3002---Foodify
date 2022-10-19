@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { auth, db, logout } from "../firebase/firebase.js";
+import { query, collection, getDocs, where } from "firebase/firestore";
+//
+//import React from "react";
 //import { Link } from "react-router-dom";
 import "../PagesCSS/Home.css";
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
 import { NavLink } from "react-router-dom";
+
 
 let activeStyle = {
   color: "#80De80",

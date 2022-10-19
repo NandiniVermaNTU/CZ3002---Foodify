@@ -14,6 +14,17 @@ let activeStyle = {
 };
 
 function Login() {
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [user, loading, error] = useAuthState(auth);
+const navigate = useNavigate();
+useEffect(() => {
+  if (loading) {
+    // trigger a loading screen
+    return;
+  }
+  if (user) navigate("/Home"); //change to page after login
+}, [user, loading]);
   return (
     <section>
       <div class="flex items-center text-center pt-10 pb-5 px-10">
@@ -23,15 +34,24 @@ function Login() {
       </div>
 
       <div class="px-4">
-        <form class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
+        <div class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
           <div class="mb-6">
             <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">
               Userame or Email Address*
             </label>
-            <input
+            {/*<input
               id="username"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="abc@email.com"
+              required
+            ></input> */}
+            <input
+              type="text"
+              id = "username"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="E-mail Address"
               required
             ></input>
           </div>
@@ -41,8 +61,11 @@ function Login() {
             </label>
             <input
               id="password"
+              type="password"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="minimum 8 characters"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
               required
             ></input>
           </div>
@@ -55,11 +78,14 @@ function Login() {
             </a>
           </div>
           <button
-            type="submit"
+            //type="submit"
+            // className="login__btn"
             class="text-white bg-teal-300 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-7 py-2.5 text-center dark:bg-teal-300 dark:hover:bg-teal-500 dark:focus:ring-teal-700 my-2"
+            onClick={() => logInWithEmailAndPassword(email, password)}
           >
             Login
           </button>
+
 
           <div class="text-sm"> <br/>&emsp; &emsp; &emsp; New to Foodify? 
             <a
@@ -69,7 +95,7 @@ function Login() {
               <br/>&emsp; &emsp; &emsp; &emsp; Sign Up!
             </a>
             </div>
-        </form>
+        </div>
       </div>
     </section>
   );
