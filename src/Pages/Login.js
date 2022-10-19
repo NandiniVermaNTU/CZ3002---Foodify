@@ -1,4 +1,9 @@
-// import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+//import { Link, useNavigate } from "react-router-dom";
+import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase/firebase.js";
+import { useAuthState } from "react-firebase-hooks/auth";
+//src\firebase\firebase.js
+//C:\Users\jimse\Documents\GitHub\CZ3002---Foodify\src\firebase\firebase.js
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css";
@@ -8,7 +13,7 @@ let activeStyle = {
   transition: "all 0.2s linear",
 };
 
-export default function Login() {
+function Login() {
   return (
     <section>
       <div class="flex items-center text-center pt-10 pb-5 px-10">
@@ -69,3 +74,4 @@ export default function Login() {
     </section>
   );
 }
+export default Login;

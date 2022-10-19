@@ -5,7 +5,7 @@ import "../PagesCSS/Myitem.css"
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
 import Layout from "../Components/Layout";
-import Datepicker from 'flowbite-datepicker/Datepicker';
+//import Datepicker from 'flowbite-datepicker/Datepicker';
 
 
 let activeStyle = {
@@ -53,7 +53,7 @@ export default function AddFoodItem() {
 
 
 
-        <script src="https://unpkg.com/flowbite@{{< current_version >}}/dist/datepicker.js"></script>
+        {/* <script src="https://unpkg.com/flowbite@{{< current_version >}}/dist/datepicker.js"></script> */}
 
         </>
 
