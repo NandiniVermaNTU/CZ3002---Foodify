@@ -21,7 +21,7 @@ useEffect(() => {
     // trigger a loading screen
     return;
   }
-  if (user) navigate("/Home"); //change to page after login
+  if (user) navigate("/home"); //change to page after login
 }, [user, loading]);
   return (
     <section>
