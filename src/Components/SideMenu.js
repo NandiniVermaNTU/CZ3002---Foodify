@@ -117,12 +117,12 @@ function Navbar() {
                   <li className="navbar-list-mobile">
                     <NavLink
                       className="navbar-items-mobile"
-                      to="/forum"
+                      to="/marketplace"
                       style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                       }
                     >
-                      Shopping Forum
+                      Marketplace
                     </NavLink>
                   </li>
 
