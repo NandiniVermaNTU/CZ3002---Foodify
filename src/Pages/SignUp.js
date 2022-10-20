@@ -14,6 +14,7 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+<<<<<<< HEAD
   const [user, loading, /*error*/] = useAuthState(auth);
   const [isLoading, setIsLoading] = useState(false);
   const history = useNavigate();
@@ -34,6 +35,21 @@ function SignUp() {
     //   });
     // } 
   }, [user, loading, isLoading, history]);
+=======
+  const [user, loading, error] = useAuthState(auth);
+  //const history = useNavigate();
+  const navigate = useNavigate();
+  const register = () => {
+    if (!name) alert("Please enter name");
+    else
+    registerWithEmailAndPassword(name, email, password);
+  };
+  useEffect(() => {
+    if (loading) return;
+    //if (user) history.replace("/home");
+    if (user) navigate("/home");
+  }, [user, loading]);
+>>>>>>> 117dcaec6e8293c22876c3b41ed3f4ae21e282bc
   return (
     <section>
       <div class="flex items-center text-center pt-10 pb-5 px-10">
@@ -43,7 +59,7 @@ function SignUp() {
       </div>
 
       <div class="px-4">
-        <form class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
+        <div class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
           <div class="mb-6">
             <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">
               Email Address*
@@ -55,7 +71,6 @@ function SignUp() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="E-mail Address"
-              required
             ></input>
           </div>
 
@@ -107,12 +122,10 @@ function SignUp() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              required
             ></input>
           </div>
 
           <button
-            // type="submit"
             onClick={register}
             class="text-white bg-teal-300 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-300 dark:hover:bg-teal-500 dark:focus:ring-teal-700 my-2"
           >
@@ -130,7 +143,7 @@ function SignUp() {
               &emsp; &emsp; &emsp; &emsp;&emsp; Login!
             </a>
           </div>
-        </form>
+        </div>
       </div>
     </section>
   );
