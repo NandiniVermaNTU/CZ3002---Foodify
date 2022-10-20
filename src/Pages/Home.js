@@ -72,7 +72,7 @@ function Home() {
                         <a class="mt-2 text-s italic text-cyan-900 md:text-base rouneded bg-gradient-to-r from-white via-cyan-200 to-white mr-14 py-2">Reduce Wastage</a>
                       </div>
                     </ul> */}
-                    <div class="bg-gray-100 rounded mx-10 my-10">
+                    <div class="bg-gray-100 rounded mx-10 my-15">
                       <div class="flex px-5 justify-center lg:justify-start">
                           <a class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" href="/profile">My Profile</a>
                       </div>
