@@ -17,6 +17,7 @@ import Marketplace from "./Pages/Marketplace";
 import Profile from "./Pages/Profile";
 import EditProfile from "./Pages/EditProfile";
 import ForgetPassword from "./Pages/ForgetPassword";
+import ChangePassword from "./Pages/ChangePassword";
 
 
 function App() {
@@ -25,18 +26,18 @@ function App() {
     <Layout />
     <Routes>
     <Route path="/" element={<HomeBefore />}/>
-    <Route path="/start" element={<HomeBefore />}></Route>
-    <Route path="/home" element={<Home />}></Route>
-    <Route path="/signin" element={<Login/>}></Route>
-    <Route path="/signup" element={<SignUp/>}></Route>
-    <Route path="/forgetpassword" element={<ForgetPassword/>}></Route>
-    {/* <Route path="/resetpassword" element={<ResetPassword/>}></Route> */}
-    <Route path="/myitem" element={<Myitem/>}></Route>
-    <Route path="/addfooditem" element={<AddFoodItem/>}></Route>
-    <Route path="/postitem" element={<PostItem/>}></Route>
-    <Route path="/marketplace" element={<Marketplace />}> </Route>
-    <Route path="/profile" element={<Profile />}> </Route>
-    <Route path="/editprofile" element={<EditProfile />}> </Route>
+    <Route path="/start" element={<HomeBefore />}/>
+    <Route path="/home" element={<Home />}/>
+    <Route path="/signin" element={<Login/>}/>
+    <Route path="/signup" element={<SignUp/>}/>
+    <Route path="/forgetpassword" element={<ForgetPassword/>}/>
+    <Route path="/changepassword" element={<ChangePassword/>}></Route>
+    <Route path="/myitem" element={<Myitem/>}/>
+    <Route path="/addfooditem" element={<AddFoodItem/>}/>
+    <Route path="/sellfooditem" element={<PostItem/>}/>
+    <Route path="/marketplace" element={<Marketplace />}/>
+    <Route path="/profile" element={<Profile />}/>
+    <Route path="/editprofile" element={<EditProfile />}/>
     </Routes>
     <Footer />
     </>

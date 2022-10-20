@@ -1,6 +1,8 @@
+import { sendEmailVerification } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   auth,
   registerWithEmailAndPassword,
@@ -12,16 +14,26 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading, /*error*/] = useAuthState(auth);
+  const [isLoading, setIsLoading] = useState(false);
   const history = useNavigate();
   const register = () => {
-    if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password);
+    if (!name || name.replace(/\s/g,"")==="") alert("Please enter name"); //new stuff added here 
+    else registerWithEmailAndPassword(name, email, password,setIsLoading);
   };
   useEffect(() => {
-    if (loading) return;
-    if (user) history.replace("/Home");
-  }, [user, loading]);
+    if (loading || isLoading) return;
+    if(user) history.replace("/home");
+    // if (user){
+    //   history.replace("/home");
+    //   sendEmailVerification(user).then(()=>{
+    //     toast(
+    //       "Verification Email sent. Please verify your email before proceeding.",
+    //       { type: "success" }
+    //     );
+    //   });
+    // } 
+  }, [user, loading, isLoading, history]);
   return (
     <section>
       <div class="flex items-center text-center pt-10 pb-5 px-10">
