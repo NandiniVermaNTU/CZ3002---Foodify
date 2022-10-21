@@ -20,7 +20,7 @@ function SignUp() {
   };
   useEffect(() => {
     if (loading) return;
-    if (user) history.replace("/Home");
+    if (user) history.replace("/home");
   }, [user, loading]);
   return (
     <section>
