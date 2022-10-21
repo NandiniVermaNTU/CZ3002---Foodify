@@ -109,13 +109,13 @@ function SignUp() {
           <div class="text-sm">
             {" "}
             <br />
-            &emsp;  Already have an Account ?
+            &emsp; &emsp;&ensp; Already have an Account ?
             <a
               href="/signin"
               class="font-medium text-indigo-600 hover:text-indigo-500"
             >
               <br />
-              &emsp; &emsp; &emsp; &emsp;&emsp; Login!
+              &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp; Login!
             </a>
           </div>
         </div>

@@ -87,6 +87,20 @@ function SideMenu() {
                     </NavLink>
                   </li>
 
+                  {/* To My Food Items page */}
+                  <li className="navbar-list-mobile">
+                    <NavLink
+                      className="navbar-items-mobile"
+                      to="/myitem"
+                      style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
+                    >
+
+                      My Food Items
+                    </NavLink>
+                  </li>
+
                   {/* To Sell Food Item Page */}
                   <li className="navbar-list-mobile">
                     <NavLink
@@ -126,7 +140,7 @@ function SideMenu() {
                     </NavLink>
                   </li>
 
-                  {/* To Community page */}
+                  {/* To Community page
                   <li className="navbar-list-mobile">
                     <NavLink
                       className="navbar-items-mobile"
@@ -137,7 +151,7 @@ function SideMenu() {
                     >
                       Community
                     </NavLink>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             </>

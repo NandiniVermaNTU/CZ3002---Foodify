@@ -72,7 +72,7 @@ useEffect(() => {
               href="/forgetpassword"
               class="font-medium text-indigo-600 hover:text-indigo-500"
             >
-              &emsp; &emsp; Forgot your password?
+              &emsp; &emsp; &emsp; Forgot your password?
             </a>
           </div>
           <button
@@ -84,12 +84,12 @@ useEffect(() => {
             Login
           </button>
 
-          <div class="text-sm"> <br/>&emsp; &emsp; &emsp; New to Foodify
+          <div class="text-sm"> <br/>&emsp; &emsp; &emsp;&emsp;&emsp; New to Foodify
             <a
               href="/signup"
               class="font-medium text-indigo-600 hover:text-indigo-500"
             >
-              <br/>&emsp; &emsp; &emsp; &emsp; Sign Up!
+              <br/>&emsp; &emsp; &emsp; &emsp;&emsp;&emsp; Sign Up!
             </a>
             </div>
         </div>
