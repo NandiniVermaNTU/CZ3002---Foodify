@@ -72,25 +72,37 @@ function Home() {
                         <a class="mt-2 text-s italic text-cyan-900 md:text-base rouneded bg-gradient-to-r from-white via-cyan-200 to-white mr-14 py-2">Reduce Wastage</a>
                       </div>
                     </ul> */}
-                    <div class="bg-gray-100 rounded mx-10 my-10">
-                      <div class="flex px-5 justify-center lg:justify-start">
-                          <a class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" href="/profile">My Profile</a>
+                    <div class="flex items-center text-center pt-8 pb-5 px-10"></div>
+                    <div class="py-4 bg-gray-100 rounded mx-10 my-15">
+                      <div class="flex px-4 justify-center lg:justify-start">
+                          <a class="text-center flex-grow mx-4 my-3 px-4 py-3 bg-blue-200 text-black-500 text-sm font-semibold rounded hover:bg-indigo-200" href="/profile">My Profile</a>
                       </div>
                       <div class="flex px-5 justify-center lg:justify-start">
-                          <a class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" href="/myitem">View My Items</a>
+                          <a class="text-center flex-grow mx-4 my-3 px-4 py-3 bg-blue-200 text-black-500 text-sm font-semibold rounded hover:bg-indigo-200" href="/myitem">View My Items</a>
                       </div>
 
                       <div class="flex px-5 justify-center lg:justify-start">
-                          <a class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" href="/marketplace">Visit Marketplace</a>
+                          <a class="text-center flex-grow mx-4 my-3 px-4 py-3 bg-blue-200 text-black-500 text-sm font-semibold rounded hover:bg-indigo-200" href="/marketplace">Visit Marketplace</a>
                       </div>
-                      <div class="flex px-5 justify-center lg:justify-start">
-                        <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">Logged in as</div>
-                        <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200"> {name}</div>
-                        <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">{user?.email}</div>
-                        <button class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" onClick={logout}>
+                      <br/>
+
+                      <div class="flex px-5 justify-center lg:justify-centers">
+                        {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">Logged in as</div> */}
+                        <div class="font-medium text-indigo-600 hover:text-indigo-500"> Logged in as:  {name}</div> 
+                        {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">{user?.email}</div> */}
+                        {/* <button class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" onClick={logout}> */}
+                          {/* Logout */}
+                        {/* </button> */}
+                      </div>
+                      <br/>
+                      <div class="flex px-5 justify-center lg:justify-centers">
+                        {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">Logged in as</div> */}
+                        <div class="font-medium text-indigo-600 hover:text-indigo-500"> {user?.email}</div> 
+                        {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">{user?.email}</div> */}
+                      </div>
+                      <button class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" onClick={logout}>
                           Logout
                         </button>
-                      </div>
                     </div>
                      
               

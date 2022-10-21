@@ -14,7 +14,7 @@ let activeStyle = {
   transition: "all 0.2s linear",
 };
 
-function Navbar() {
+function SideMenu() {
 
     const [expandNavBar, setExpandNavBar] = useState(false);
 
@@ -117,12 +117,12 @@ function Navbar() {
                   <li className="navbar-list-mobile">
                     <NavLink
                       className="navbar-items-mobile"
-                      to="/forum"
+                      to="/marketplace"
                       style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                       }
                     >
-                      Shopping Forum
+                      Marketplace
                     </NavLink>
                   </li>
 
@@ -150,4 +150,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default SideMenu;
