@@ -122,7 +122,7 @@ function Navbar() {
                         isActive ? activeStyle : undefined
                       }
                     >
-                      Shopping Forum
+                      Marketplace
                     </NavLink>
                   </li>
 

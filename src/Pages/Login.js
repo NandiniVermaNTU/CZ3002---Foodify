@@ -84,8 +84,7 @@ useEffect(() => {
             Login
           </button>
 
-
-          <div class="text-sm"> <br/>&emsp; &emsp; &emsp; New to Foodify? 
+          <div class="text-sm"> <br/>&emsp; &emsp; &emsp; New to Foodify
             <a
               href="/signup"
               class="font-medium text-indigo-600 hover:text-indigo-500"
