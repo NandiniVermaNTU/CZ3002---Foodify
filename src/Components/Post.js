@@ -9,13 +9,13 @@ return(
     <section>
         {/* Item display*/}
         <div className="Post-section1">
-          <h1 className="Post-heading1"> Username </h1>
-          <h1 className="Post-heading1"> Item: </h1>
-          <h1 className="Post-heading1"> Price: </h1>
-          <h1 className="Post-heading1"> Expiry: </h1>
-          <h1 className="Post-heading1"> Opened/Unopened: </h1>
-          <h1 className="Post-heading1"> Description: </h1>
-          <h1 className="Post-heading1"> Image: </h1>
+            <h1 className="Post-heading1">Username </h1>
+            <h1 className="Post-heading1"> Item: </h1>
+            <h1 className="Post-heading1"> Price: </h1>
+            <h1 className="Post-heading1"> Expiry: </h1>
+            <h1 className="Post-heading1"> Opened/Unopened: </h1>
+            <h1 className="Post-heading1"> Description: </h1>
+            <h1 className="Post-heading1"> Image: </h1>
           <img
             class="img-responsive"
             src={pic1}
@@ -24,6 +24,7 @@ return(
           />
         </div>
     </section>
+    
 )
 
 }
