@@ -18,6 +18,8 @@ import Profile from "./Pages/Profile";
 import EditProfile from "./Pages/EditProfile";
 import ForgetPassword from "./Pages/ForgetPassword";
 import ChangePassword from "./Pages/ChangePassword";
+// import Recipe from "./Pages/Recipe";
+import Recipe from "./Pages/Recipe";
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
     <Route path="/marketplace" element={<Marketplace />}/>
     <Route path="/profile" element={<Profile />}/>
     <Route path="/editprofile" element={<EditProfile />}/>
+    <Route path="/recipe" element={<Recipe />}/>
+    {/* <Route path="/test" element={<ButtonClick />}/> */}
     </Routes>
     <Footer />
     </>

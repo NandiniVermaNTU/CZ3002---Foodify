@@ -118,7 +118,7 @@ function SideMenu() {
                   <li className="navbar-list-mobile">
                     <NavLink
                       className="navbar-items-mobile"
-                      to="/recipes"
+                      to="/recipe"
                       style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                       }
