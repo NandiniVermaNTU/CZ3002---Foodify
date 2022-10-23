@@ -9,7 +9,7 @@ function Marketplace() {
     <section>
 
      {/* Marketplace heading */}
-      <div class="flex items-center text-center pt-3 pb-2 ml-20">
+      <div class="flex items-center text-center pt-3 pb-2 pl-12 ml-5">
         <div class="flex items-center text-4xl font-semibold text-black-800 md:text-2xl">
            Marketplace 
         </div>
@@ -36,7 +36,7 @@ function Marketplace() {
       </div>
 
 
-      <div class="flex pt-1 pb-2 pl-1">
+      <div class="flex pt-1 pb-2 pl-1.5">
         <Post /> 
       </div>
 

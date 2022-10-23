@@ -18,6 +18,7 @@ import Profile from "./Pages/Profile";
 import EditProfile from "./Pages/EditProfile";
 import ForgetPassword from "./Pages/ForgetPassword";
 import ChangePassword from "./Pages/ChangePassword";
+import Chat from "./Pages/Chat";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
     <Route path="/marketplace" element={<Marketplace />}/>
     <Route path="/profile" element={<Profile />}/>
     <Route path="/editprofile" element={<EditProfile />}/>
+    <Route path="/chat" element={<Chat />}/>
     </Routes>
     <Footer />
     </>
