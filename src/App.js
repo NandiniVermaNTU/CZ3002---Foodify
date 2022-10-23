@@ -18,8 +18,12 @@ import Profile from "./Pages/Profile";
 import EditProfile from "./Pages/EditProfile";
 import ForgetPassword from "./Pages/ForgetPassword";
 import ChangePassword from "./Pages/ChangePassword";
+<<<<<<< HEAD
 // import Recipe from "./Pages/Recipe";
 import Recipe from "./Pages/Recipe";
+=======
+import Chat from "./Pages/Chat";
+>>>>>>> 3b2883e63ee2432189361347324f124b9922e309
 
 
 function App() {
@@ -40,8 +44,12 @@ function App() {
     <Route path="/marketplace" element={<Marketplace />}/>
     <Route path="/profile" element={<Profile />}/>
     <Route path="/editprofile" element={<EditProfile />}/>
+<<<<<<< HEAD
     <Route path="/recipe" element={<Recipe />}/>
     {/* <Route path="/test" element={<ButtonClick />}/> */}
+=======
+    <Route path="/chat" element={<Chat />}/>
+>>>>>>> 3b2883e63ee2432189361347324f124b9922e309
     </Routes>
     <Footer />
     </>

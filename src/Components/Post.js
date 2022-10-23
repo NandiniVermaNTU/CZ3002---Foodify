@@ -1,6 +1,8 @@
 import React from "react";
 import "../ComponentsCSS/Post.css";
 import pic1 from "../Images/chat-icon.png";
+import "../Pages/Chat.js";
+import { NavLink } from "react-router-dom";
 
 function Post() {
 
@@ -16,13 +18,25 @@ return(
             <h1 className="Post-heading1"> Opened/Unopened: </h1>
             <h1 className="Post-heading1"> Description: </h1>
             <h1 className="Post-heading1"> Image: </h1>
-          <img
+          
+          
+          <button type="button">
+          <nav  class="chat-button">
+          <ul>
+            <li> <a href="/chat"> 
+            <img
             class="img-responsive"
+            href="/chat"
             src={pic1}
             alt="chat-icon"
             className="Post-chat-icon-img1"
           />
+          </a></li>
+          </ul>
+          </nav>
+          </button>
         </div>
+
     </section>
     
 )
