@@ -22,29 +22,28 @@ import ChangePassword from "./Pages/ChangePassword";
 import Recipe from "./Pages/Recipe";
 import Chat from "./Pages/Chat";
 
-
 function App() {
 
   return (<>
-    <Layout />
+    {/* <Layout /> */}
     <Routes>
     <Route path="/" element={<HomeBefore />}/>
     <Route path="/start" element={<HomeBefore />}/>
     <Route path="/home" element={<Home />}/>
-    <Route path="/signin" element={<Login/>}/>
+    <Route path="/signin" element={<Login/> } />
     <Route path="/signup" element={<SignUp/>}/>
     <Route path="/forgetpassword" element={<ForgetPassword/>}/>
     <Route path="/changepassword" element={<ChangePassword/>}></Route>
     <Route path="/myitem" element={<Myitem/>}/>
     <Route path="/addfooditem" element={<AddFoodItem/>}/>
     <Route path="/sellfooditem" element={<PostItem/>}/>
+    <Route path="/recipe" element={<Recipe />}/>
     <Route path="/marketplace" element={<Marketplace />}/>
     <Route path="/profile" element={<Profile />}/>
     <Route path="/editprofile" element={<EditProfile />}/>
 
     <Route path="/recipe" element={<Recipe />}/>
     {/* <Route path="/test" element={<ButtonClick />}/> */}
-
     <Route path="/chat" element={<Chat />}/>
     </Routes>
     <Footer />

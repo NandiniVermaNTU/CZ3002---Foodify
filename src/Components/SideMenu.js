@@ -48,7 +48,7 @@ function SideMenu() {
                   </li>
 
                   {/* To Sign In page */}
-                  <li className="navbar-list-mobile">
+                  {/* <li className="navbar-list-mobile">
                     <NavLink
                       className="navbar-items-mobile"
                       to="/signin"
@@ -58,10 +58,10 @@ function SideMenu() {
                     >
                       Sign In
                     </NavLink>
-                  </li>
+                  </li> */}
 
                   {/* To Sign Up page */}
-                  <li className="navbar-list-mobile">
+                  {/* <li className="navbar-list-mobile">
                     <NavLink
                       className="navbar-items-mobile"
                       to="/signup"
@@ -71,7 +71,7 @@ function SideMenu() {
                     >
                       Sign Up
                     </NavLink>
-                  </li>
+                  </li> */}
 
                   {/* To Add Food Item page */}
                   <li className="navbar-list-mobile">
@@ -140,18 +140,6 @@ function SideMenu() {
                     </NavLink>
                   </li>
 
-                  {/* To Community page
-                  <li className="navbar-list-mobile">
-                    <NavLink
-                      className="navbar-items-mobile"
-                      to="/community"
-                      style={({ isActive }) =>
-                        isActive ? activeStyle : undefined
-                      }
-                    >
-                      Community
-                    </NavLink>
-                  </li> */}
                 </ul>
               </nav>
             </>

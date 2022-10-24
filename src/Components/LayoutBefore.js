@@ -16,7 +16,7 @@ export default function Layout({ preview, children }) {
         <div>
           <img src={logo} alt="Foodify-Logo" className="logo" />
         </div>
-        <SideMenu />
+        {/* <SideMenu /> */}
         <div>
           {/* Foodify Background Image, Headings */}
           <div className="section1">

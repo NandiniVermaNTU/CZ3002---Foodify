@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 import Axios from "axios";
+import Layout from "../Components/Layout.js";
 
 const apiKey = "cd8ff5193bbd492ea78b3a1d3f177137";
 const baseURL = 'https://api.spoonacular.com';
@@ -53,6 +54,7 @@ const Recipe = () => {
     // </div>
     
     <div>
+        <Layout/>
         <div class="items-center text-center">
             <h2 class="text-3xl font-semibold text-gray-500 md:text-4xl italic py-5"><span class="font-extrabold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-red-400 via-rose-500 to-yellow-400 font-bold italic">Magic</span> Recipes </h2>
         </div>

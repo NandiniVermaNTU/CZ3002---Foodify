@@ -10,6 +10,7 @@ import "../PagesCSS/Home.css";
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
 import { NavLink } from "react-router-dom";
+import Layout from "../Components/Layout.js";
 
 
 let activeStyle = {
@@ -40,7 +41,7 @@ function Home() {
   }, [user, loading]);
   return (
     <section>
-
+      <Layout/>
       {/* Foodify name section */}
       {/* <div className="home-section1">
         <h1 className="home-heading1">Foodify</h1>

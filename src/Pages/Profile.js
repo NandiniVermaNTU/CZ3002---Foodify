@@ -4,6 +4,7 @@ import "../PagesCSS/Home.css";
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
 import { NavLink } from "react-router-dom";
+import Layout from "../Components/Layout.js";
 
 let activeStyle = {
   color: "#80De80",
@@ -14,6 +15,7 @@ let activeStyle = {
 export default function Profile() {
   return (
     <section>
+      <Layout/>
         <div class="flex items-center text-center pt-10 pb-5 px-10">
             <div class="flex items-center text-3xl font-semibold text-gray-800 md:text-4xl">My Profile</div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 //import { Link } from "react-router-dom";
 import "../PagesCSS/Home.css";
+import Layout from "../Components/Layout";
 
 let activeStyle = {
   color: "#80De80",
@@ -11,6 +12,7 @@ let activeStyle = {
 export default function EditProfile() {
   return (
     <section>
+        <Layout/>
         <div class="flex items-center text-center pt-10 pb-5 px-10">
             <div class="flex items-center text-3xl font-semibold text-gray-800 md:text-4xl">Edit Profile</div>
             {/* <div class="flex text-xl items-center">My Profile</div> */}

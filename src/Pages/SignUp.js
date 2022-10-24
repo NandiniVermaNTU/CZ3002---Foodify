@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import LayoutBefore from "../Components/LayoutBefore.js";
 import {
   auth,
   registerWithEmailAndPassword,
@@ -27,6 +28,7 @@ function SignUp() {
   }, [user, loading]);
   return (
     <section>
+      <LayoutBefore/>
       <div class="flex items-center text-center pt-10 pb-5 px-10">
         <div class="flex items-center text-3xl font-semibold text-gray-800 md:text-4xl">
           Sign Up
