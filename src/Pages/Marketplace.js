@@ -35,13 +35,10 @@ function Marketplace() {
             ></input>
       </div>
 
-<<<<<<< HEAD
       {/* Post */}
-      <div class="flex pt-1 pb-2 pl-1">
-=======
+      {/* <div class="flex pt-1 pb-2 pl-1"> */}
 
       <div class="flex pt-1 pb-2 pl-1.5">
->>>>>>> 3b2883e63ee2432189361347324f124b9922e309
         <Post /> 
       </div>
 

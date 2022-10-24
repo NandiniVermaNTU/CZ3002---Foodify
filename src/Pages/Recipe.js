@@ -2,43 +2,42 @@ import React, { useState, useEffect } from "react"
 
 import Axios from "axios";
 
-
 const apiKey = "cd8ff5193bbd492ea78b3a1d3f177137";
 const baseURL = 'https://api.spoonacular.com';
 
 
 const Recipe = () => {
-  const [recipe, setRecipes] = useState([])
-  const [misseding, setMissIngredient] = useState([])
-  const [recipesID, setRecipesID] = useState([])
-
-  const [ingredients, setIngredients] = useState("")
-
-  const fetchRecipes = () => {
-    Axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=2`).then((res) => {
-        console.log(res.data);
-        console.log(res.data[0].id)
-        setRecipes(res.data)
-    })
-  }
-
-  const fetchRecipesInfo = (id) => {
-    Axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false?apiKey=${apiKey}`).then((res) => {
-        setRecipes(res.data)
-        console.log(res.data)
-        setRecipesID(res.data.map((recipe) => recipe.id))
-        console.log(recipesID);
-    })
-  }
-
-//   const fetchMissIngredient = (recipe) => {
-//     setMissIngredient(recipe.original);
-//   }
-
-  useEffect(() => {
-    fetchRecipesInfo();
-  }, []);
-
+    const [recipe, setRecipes] = useState([])
+    const [misseding, setMissIngredient] = useState([])
+    const [recipesID, setRecipesID] = useState([])
+  
+    const [ingredients, setIngredients] = useState("")
+  
+    const fetchRecipes = () => {
+      Axios.get(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=5`).then((res) => {
+          console.log(res.data);
+          console.log(res.data[0].id)
+          setRecipes(res.data)
+      })
+    }
+  
+    const fetchRecipesInfo = (id) => {
+      Axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false?apiKey=${apiKey}`).then((res) => {
+          setRecipes(res.data)
+          console.log(res.data)
+          setRecipesID(res.data.map((recipe) => recipe.id))
+          console.log(recipesID);
+      })
+    }
+  
+  //   const fetchMissIngredient = (recipe) => {
+  //     setMissIngredient(recipe.original);
+  //   }
+  
+    useEffect(() => {
+      fetchRecipesInfo();
+    }, []);
+  
   
 
   return (
@@ -95,6 +94,9 @@ const Recipe = () => {
                                             <p class="px-5 py-5 font-semibold text-gray-600 dark:text-white">{recipe.title}</p>
                                         </div>
                                         
+                                        <div class="px-2 py-2">
+                                            <img src={recipe.image}></img>
+                                        </div>
                                         <p class="px-5 py-5 font-semibold text-gray-800 dark:text-white underline"> Ingredients </p>
                                         <div>
                                             
@@ -110,6 +112,7 @@ const Recipe = () => {
             ))}
         </div>
         
+
 
 
 
