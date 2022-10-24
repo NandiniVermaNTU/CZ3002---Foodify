@@ -8,6 +8,7 @@ import {
         sendPasswordResetEmail,
         signOut,
 } from "firebase/auth";
+import {reauthenticateWithCredential, updatePassword } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 import {
   getFirestore,
@@ -87,6 +88,24 @@ const sendPasswordReset = async (email) => {
 const logout = () => {
   signOut(auth);
 };
+
+//
+const reauthenticate = (currentPassword) => {
+  var user = auth.currentUser;
+  var cred = auth.EmailAuthProvider.credential(
+      user.email, currentPassword);
+  return user.reauthenticateWithCredential(cred);
+};
+
+const changePassword = (currentPassword, newPassword) => {
+  reauthenticate(currentPassword).then(() => {
+    var user = auth.currentUser;
+    updatePassword(user, newPassword).then(() => {
+      console.log("Password updated!");
+    }).catch((error) => { console.log(error); });
+  }).catch((error) => { console.log(error); });
+};
+//
 export {
   auth,
   db,
@@ -95,4 +114,5 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+  changePassword
 };
