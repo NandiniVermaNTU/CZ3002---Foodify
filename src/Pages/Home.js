@@ -89,7 +89,9 @@ function Home() {
 
                       <div class="flex px-5 justify-center lg:justify-centers">
                         {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">Logged in as</div> */}
-                        <div class="font-medium text-indigo-600 hover:text-indigo-500"> Logged in as:  {name}</div> 
+                        <div class="font-medium text-indigo-600 hover:text-indigo-500"> 
+                          Logged in as:  {name}
+                        </div> 
                         {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">{user?.email}</div> */}
                         {/* <button class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" onClick={logout}> */}
                           {/* Logout */}
@@ -98,10 +100,14 @@ function Home() {
                       <br/>
                       <div class="flex px-5 justify-center lg:justify-centers">
                         {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">Logged in as</div> */}
-                        <div class="font-medium text-indigo-600 hover:text-indigo-500"> {user?.email}</div> 
+                        <div class="font-medium text-indigo-600 hover:text-indigo-500">
+                           {user?.email}
+                        </div> 
                         {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">{user?.email}</div> */}
                       </div>
-                      <button class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" onClick={logout}>
+                      <button 
+                        class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" 
+                        onClick={logout}>
                           Logout
                         </button>
                     </div>

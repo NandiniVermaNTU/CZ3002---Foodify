@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { auth, db, logout } from "../firebase/firebase.js";
+import { query, collection, getDocs, where } from "firebase/firestore";
+//
 //import { Link } from "react-router-dom";
 import "../PagesCSS/Home.css";
 import Layout from "../Components/Layout";
-
 let activeStyle = {
   color: "#80De80",
   transition: "all 0.2s linear",
@@ -10,7 +14,28 @@ let activeStyle = {
 
 
 export default function EditProfile() {
-  return (
+const [user, loading, error] = useAuthState(auth);
+const [name, setName] = useState("");
+const [phone, setPhone] = useState("");
+const navigate = useNavigate();
+const fetchUserName = async () => {
+try {
+    const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+    const doc = await getDocs(q);
+    const data = doc.docs[0].data();
+    setName(data.name);
+    setPhone(data.phone);
+} catch (err) {
+    console.error(err);
+    alert("An error occured while fetching user data");
+}
+};
+useEffect(() => {
+if (loading) return;
+if (!user) return navigate("/");
+fetchUserName();
+}, [user, loading]);
+    return (
     <section>
         <Layout/>
         <div class="flex items-center text-center pt-10 pb-5 px-10">
@@ -21,21 +46,25 @@ export default function EditProfile() {
 
         <div class="px-4">
             <form class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
-                <div class="mb-6">
+                {/* <div class="mb-6">
                     <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">Userame*</label>
-                    <input id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Yen" required></input>
-                </div>
+                    <input id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={name} required></input>
+                </div> */}
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Registered Email*</label>
                     <input id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="abc@gmail.com" required></input>
                 </div>
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
-                    <input id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="optional"></input>
+                    <input id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder={name}
+                    ></input>
                 </div>
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone Number</label>
-                    <input id="phonenumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="optional"></input>
+                    <input id="phonenumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                    placeholder={phone}
+                    ></input>
                 </div>
 
                 <div class="text-sm" >

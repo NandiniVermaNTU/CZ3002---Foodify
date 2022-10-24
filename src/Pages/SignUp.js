@@ -13,13 +13,15 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [user, loading, error] = useAuthState(auth);
   //const history = useNavigate();
   const navigate = useNavigate();
   const register = () => {
     if (!name) alert("Please enter name");
+    else if (!phone) alert("Please enter phone no.");
     else
-    registerWithEmailAndPassword(name, email, password);
+    registerWithEmailAndPassword(name, email, password, phone);
   };
   useEffect(() => {
     if (loading) return;
@@ -51,17 +53,19 @@ function SignUp() {
             ></input>
           </div>
 
-          {/* <div class="mb-6">
+          <div class="mb-6">
             <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">
-              Username*
+              Phone No.*
             </label>
             <input
-              id="username"
+              id="phone"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="abc1234"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Phone No."
               required
             ></input>
-          </div> */}
+          </div>
 
           <div class="mb-6">
             <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">
