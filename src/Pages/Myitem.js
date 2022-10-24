@@ -79,7 +79,7 @@ function Myitem() {
             </div>
         </div>
 
-        <div class="flex justify-center lg:justify-start mt-10 px-5 italic">Want to make some meals from these item?</div>
+        <div class="flex justify-center lg:justify-start mt-10 px-5 italic">Want to make a meal from these items?</div>
         <div class="flex justify-center lg:justify-start mt-5 px-5">
             <a class="px-4 py-3 bg-teal-500 text-white text-sm font-semibold rounded hover:bg-teal-700" href="/recipe">Recipes Recommendation</a>
         </div>

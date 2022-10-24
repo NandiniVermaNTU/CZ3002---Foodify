@@ -30,6 +30,10 @@ const firebaseConfig = {
   };
 
 const app = initializeApp(firebaseConfig);
+
+//Yen add 
+// var database = app.database();
+
 //const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -118,3 +122,5 @@ export {
   logout,
   changePassword
 };
+
+export default db;
