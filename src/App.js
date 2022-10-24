@@ -21,6 +21,7 @@ import ChangePassword from "./Pages/ChangePassword";
 // import Recipe from "./Pages/Recipe";
 import Recipe from "./Pages/Recipe";
 import Chat from "./Pages/Chat";
+import Notification from "./Pages/Notification";
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
     <Route path="/editprofile" element={<EditProfile />}/>
 
     <Route path="/recipe" element={<Recipe />}/>
+    <Route path="/notification" element={<Notification />}/>
     {/* <Route path="/test" element={<ButtonClick />}/> */}
     <Route path="/chat" element={<Chat />}/>
     </Routes>

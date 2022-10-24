@@ -1,25 +1,10 @@
 import React, { useState } from "react";
-import {Link, useNavigate, NavLink} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css"
-import pic1 from "../Images/FoodifyBckgd.jpg";
-import pic2 from "../Images/HomeImg2.jpg";
 import Layout from "../Components/Layout";
-import Sidebar from "../Components/Sidebar";
-
-let activeStyle = {
-    color: "#80De80",
-    transition: "all 0.2s linear",
-  };
 
 function Myitem() {
-    const navigate = useNavigate();
-
-    const navigateToAddFoodItem = () => {
-      // 👇️ navigate to /contacts
-      navigate('/addfooditem');
-    };
-
   return (
     <div>
         <Layout/>
@@ -92,6 +77,11 @@ function Myitem() {
                     </table>
                 </div>
             </div>
+        </div>
+
+        <div class="flex justify-center lg:justify-start mt-10 px-5 italic">Want to make some meals from these item?</div>
+        <div class="flex justify-center lg:justify-start mt-5 px-5">
+            <a class="px-4 py-3 bg-teal-500 text-white text-sm font-semibold rounded hover:bg-teal-700" href="/recipe">Recipes Recommendation</a>
         </div>
 
 
