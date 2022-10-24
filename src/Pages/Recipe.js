@@ -3,14 +3,17 @@ import React, { useState, useEffect } from "react"
 import Axios from "axios";
 import Layout from "../Components/Layout.js";
 
-const apiKey = "cd8ff5193bbd492ea78b3a1d3f177137";
+// const apiKey = "cd8ff5193bbd492ea78b3a1d3f177137";
+const apiKey = "7418462201954cc1aa005af58cd840b6";
 const baseURL = 'https://api.spoonacular.com';
 
 
 const Recipe = () => {
     const [recipe, setRecipes] = useState([])
-    const [misseding, setMissIngredient] = useState([])
-    const [recipesID, setRecipesID] = useState([])
+    const [missedIng, setMissIngredient] = useState([])
+    const [recipesID, setRecipesID] = useState("")
+    const [details, setDetails] = useState({});
+    const [stepsInfo, setSteps] = useState([]);
   
     const [ingredients, setIngredients] = useState("")
   
@@ -30,14 +33,85 @@ const Recipe = () => {
           console.log(recipesID);
       })
     }
+
+    const fetchSteps = (id) => {
+        console.log(id)
+        Axios.get(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${apiKey}`).then((res) => {
+            setSteps(res.data)
+            console.log(res.data)
+            // setstep(res.data.map((recipe) => recipe.id))
+            // console.log(recipesID);
+        })
+        return (
+            stepsInfo[0].steps.map(steps => (
+                <div>
+                    <ul>
+                        <li>{steps.step}</li>
+                    </ul>
+                </div>
+            ))
+            
+        )
+      }
+
+    
   
   //   const fetchMissIngredient = (recipe) => {
   //     setMissIngredient(recipe.original);
   //   }
+
+//   const RecipesList = ({Ing}) => {
+
+//     let faveRecipeItems;
+//     if (faveRecipes.length > 0) {
+//       faveRecipeItems = (
+//         <Fragment>
+//           {faveRecipes.map((recipe) => (
+//             <RecipeCard
+//               key={recipe.id}
+//               id={recipe.id}
+//               title={recipe.title}
+//               image={recipe.image}
+//               missingIngredients={recipe.missedIngredients}
+//             />
+//           ))}
+//         </Fragment>
+//       );
+//     }
+
+    const fetchDetails = async () => {
+        const resp = await fetch(
+        `https://api.spoonacular.com/recipes/${recipesID}/information?apiKey=${apiKey}`
+        );
+        const data = await resp.json();
+        return data;
+    };
+
+    useEffect(() => {
+        let isMounted = true;
+
+        fetchDetails().then((data) => {
+        if (isMounted) setDetails(data);
+        });
+        return () => {
+        isMounted = false;
+        };
+    }, [recipesID]);
+
   
     useEffect(() => {
       fetchRecipesInfo();
     }, []);
+
+    // useEffect(() => {
+    //     fetchSteps();
+    //   }, []);
+
+
+
+    
+
+
   
   
 
@@ -99,10 +173,41 @@ const Recipe = () => {
                                         <div class="px-2 py-2">
                                             <img src={recipe.image}></img>
                                         </div>
-                                        <p class="px-5 py-5 font-semibold text-gray-800 dark:text-white underline"> Ingredients </p>
-                                        <div>
+                                        <p class="px-5 pt-5 font-semibold text-gray-800 dark:text-white underline">Ingredients </p>
+                                        <div class="px-5 py-2">
+                                            { recipe.usedIngredients.map(ing => (
+                                                <ol>
+                                                    <li class="flex"> {ing.amount} {ing.unit} {ing.name}</li>
+                                                </ol>
+                                            ))}
+                                            { recipe.missedIngredients.map(ing => (
+                                                <ol>
+                                                    <li class="flex"> {ing.amount} {ing.unit} {ing.name}</li>
+                                                </ol>
+                                            ))}
                                             
                                         </div>
+
+                                       
+                                        {/* <div class="px-5 py-2"> */}
+                                        {/* {
+                                            Axios.get(`https://api.spoonacular.com/recipes/${recipe.id}/analyzedInstructions?apiKey=${apiKey}`).then((res) => {
+                                                setSteps(res.data)
+                                                console.log(res.data)
+                                                // setstep(res.data.map((recipe) => recipe.id))
+                                                // console.log(recipesID);
+                                            }) } */}
+                                            {/* {fetchSteps(recipe.id)}
+                                        </div>  */}
+                                        {/* {stepsInfo.steps.map(steps => (
+                                            <div>
+                                                <ul>
+                                                    <li>{steps.step}</li>
+                                                </ul>
+                                            </div>
+                                            ))
+                                        } */}
+                                        
                                     </td>
                                 </tr>
                             {/* </li> */}

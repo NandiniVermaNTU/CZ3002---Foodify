@@ -18,12 +18,12 @@ const root = createRoot(rootElement);
 // const root = createRoot(rootElement!);
 
 root.render(
-   <StrictMode>
+   <>
     <BrowserRouter>
     <App />
     <ToastContainer/>
     </BrowserRouter>
-   </StrictMode>,
+   </>,
 );
 
 // ReactDOM.render(
