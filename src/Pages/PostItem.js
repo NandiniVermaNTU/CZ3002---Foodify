@@ -4,7 +4,7 @@ import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css"
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
-import Layout from "../Components/Layout";
+import Layout from "../Components/Layout.js";
 
 
 let activeStyle = {
@@ -16,6 +16,7 @@ let activeStyle = {
 export default function PostItem() {
     return (
         <>
+        <Layout/>
         <div class="px-4">
             <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
 

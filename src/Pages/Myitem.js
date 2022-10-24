@@ -22,6 +22,7 @@ function Myitem() {
 
   return (
     <div>
+        <Layout/>
         <div class="w-full px-8 pt-10 item-center">
             <div class="border rounded-lg border pb-6 border-gray-200 dark:border-gray-700 ">
                 <div class="flex items-center border-b border-gray-200 dark:border-gray-700  justify-between px-6 py-3">

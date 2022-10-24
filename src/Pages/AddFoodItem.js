@@ -5,6 +5,8 @@ import "../PagesCSS/Myitem.css"
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
 import Layout from "../Components/Layout";
+import SideMenu from "../Components/SideMenu";
+import "..//ComponentsCSS/SideMenu.css";
 //import Datepicker from 'flowbite-datepicker/Datepicker';
 
 
@@ -17,6 +19,7 @@ let activeStyle = {
 export default function AddFoodItem() {
     return (
         <>
+        <Layout/>
         <div class="px-4">
             <form class="bg-white px-8 pt-6 pb-8 mb-4">
                 <div class="mb-6">
@@ -31,7 +34,6 @@ export default function AddFoodItem() {
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
                     {/* <input id="food-description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="still fresh"></input> */}
                     <input datetimepicker class="focus:shadow-soft-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" type="text" placeholder="Please select a date" />
-
                 </div>
                 
                 <div class="mb-6">
@@ -47,11 +49,10 @@ export default function AddFoodItem() {
                 
                 <button type="submit" class="text-white bg-teal-300 hover:bg-rose-500 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-300 dark:hover:bg-teal-500 dark:focus:ring-teal-700 my-2">Add</button>
                 <button class="text-rose-900 bg-general-color hover:bg-rose-500 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-general-color dark:hover:bg-rose-500 dark:focus:ring-rose-700 my-2">Cancel</button>
+
             </form>
-
+            
         </div>
-
-
 
         {/* <script src="https://unpkg.com/flowbite@{{< current_version >}}/dist/datepicker.js"></script> */}
 

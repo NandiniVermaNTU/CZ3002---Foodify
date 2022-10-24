@@ -4,6 +4,7 @@ import "../PagesCSS/Home.css";
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
 import { NavLink } from "react-router-dom";
+import LayoutBefore from "../Components/LayoutBefore";
 
 let activeStyle = {
   color: "#80De80",
@@ -14,6 +15,7 @@ let activeStyle = {
 export default function HomeBefore() {
   return (
     <section>
+      <LayoutBefore/>
         <div class="flex items-center text-center lg:text-left py-10 md:px-12 lg:w-1/2">
                  <div>
                      <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl italic py-5">Getting started with <span class="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 font-bold italic">Foodify</span></h2>

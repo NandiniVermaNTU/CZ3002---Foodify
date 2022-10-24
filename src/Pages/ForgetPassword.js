@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, sendPasswordReset } from "../firebase/firebase.js";
 // import React, { useState } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
+import Layout from "../Components/Layout";
 import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css";
 
@@ -21,6 +22,7 @@ function ForgetPassword() {
   }, [user, loading]);
   return (
     <section>
+      <Layout/>
       <div class="flex items-center text-center pt-10 pb-5 px-10">
         <div class="flex items-center text-3xl font-semibold text-gray-800 md:text-4xl">
           Reset Password
