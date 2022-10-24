@@ -30,7 +30,7 @@ const firebaseConfig = {
   };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+//const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
@@ -91,6 +91,7 @@ const logout = () => {
 
 //
 const reauthenticate = (currentPassword) => {
+  //const auth = getAuth(app);
   var user = auth.currentUser;
   var cred = auth.EmailAuthProvider.credential(
       user.email, currentPassword);
