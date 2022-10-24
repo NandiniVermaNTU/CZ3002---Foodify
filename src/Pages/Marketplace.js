@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "../PagesCSS/Marketplace.css";
 import Post from "../Components/Post.js";
+import Layout from "../Components/Layout";
 
 function Marketplace() {
 
   const [query,setQuery] = useState("");
     return (
     <section>
-
+      <Layout/>
      {/* Marketplace heading */}
       <div class="flex items-center text-center pt-3 pb-2 pl-12 ml-5">
         <div class="flex items-center text-4xl font-semibold text-black-800 md:text-2xl">
@@ -35,13 +36,8 @@ function Marketplace() {
             ></input>
       </div>
 
-<<<<<<< HEAD
       {/* Post */}
       <div class="flex pt-1 pb-2 pl-1">
-=======
-
-      <div class="flex pt-1 pb-2 pl-1.5">
->>>>>>> 3b2883e63ee2432189361347324f124b9922e309
         <Post /> 
       </div>
 

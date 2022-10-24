@@ -1,4 +1,6 @@
 import React from "react";
+import Layout from "../Components/Layout";
+import SideMenu from "../Components/SideMenu";
 //import { Link } from "react-router-dom";
 import "../PagesCSS/Home.css";
 
@@ -10,7 +12,10 @@ let activeStyle = {
 
 export default function ChangePassword() {
   return (
+
+    
     <section>
+        <Layout/>
         <div class="flex items-center text-center pt-10 pb-5 px-10">
             <div class="flex items-center text-3xl font-semibold text-gray-800 md:text-4xl">Change Password</div>
         </div>

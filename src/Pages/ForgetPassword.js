@@ -1,5 +1,6 @@
 // import React, { useState } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
+import Layout from "../Components/Layout";
 import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css";
 
@@ -11,6 +12,7 @@ let activeStyle = {
 export default function ForgetPassword() {
   return (
     <section>
+      <Layout/>
       <div class="flex items-center text-center pt-10 pb-5 px-10">
         <div class="flex items-center text-3xl font-semibold text-gray-800 md:text-4xl">
           Reset Your Password

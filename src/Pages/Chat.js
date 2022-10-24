@@ -2,6 +2,7 @@ import React from "react";
 import Post from "../Components/Post.js";
 import "../PagesCSS/Marketplace.css";
 import { NavLink, Link, useNavigate } from "react-router-dom";
+import Layout from "../Components/Layout";
 import PAY from "../Images/pay(new).jpg";
 import ENDCHAT from "../Images/endchatnew.jpg";
 import SEND from "../Images/send.png";
@@ -10,7 +11,7 @@ function Chat() {
 
     return (
     <section>
-
+      <Layout/>
      {/* Item-Price heading */}
       <div class="flex items-center text-center pt-3 pb-2 pl-12 ml-5">
         <div class="flex items-center text-4xl font-semibold text-black-800 md:text-2xl">

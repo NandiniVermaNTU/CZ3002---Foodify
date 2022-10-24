@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css";
+import LayoutBefore from "../Components/LayoutBefore.js";
 
 let activeStyle = {
   color: "#80De80",
@@ -25,6 +26,7 @@ useEffect(() => {
 }, [user, loading]);
   return (
     <section>
+      <LayoutBefore/>
       <div class="flex items-center text-center pt-10 pb-5 px-10">
         <div class="flex items-center text-3xl font-semibold text-gray-800 md:text-4xl">
           Login
