@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import {initializeApp } from "firebase/app";
 import {
         GoogleAuthProvider,
         getAuth,
@@ -17,8 +17,9 @@ import {
   collection,
   where,
   addDoc,
+  updateDoc
 } from "firebase/firestore";
-// Firebase key
+import { data } from "autoprefixer";
 const firebaseConfig = {
     apiKey: "AIzaSyADIeFkZCwAUDdChxmnAx-O_3G_0l_UPLY",
     authDomain: "foodify-eaa30.firebaseapp.com",
@@ -112,6 +113,48 @@ const changePassword = (currentPassword, newPassword) => {
   }).catch((error) => { console.log(error); });
 };
 //
+const updateProfileFirebase = async (newEmail, newName, newPhone) => {
+  try {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    // const profileRef = collection(db, "users");
+    //
+    const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+    //const doc = await getDocs(q);
+    alert("Debug3");
+    // const data = doc.docs[0].data();
+    await updateDoc(q, {
+      name: newPhone,
+      authProvider: "local",
+      email: newEmail,
+      phone: newName,
+    });
+    alert("Data Updated");
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+  //
+};
+
+const updateData = (newName,newEmail,newPhone) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+  const doc = getDocs(q);
+  updateDoc(doc, {
+    name: newName,
+    email: newEmail,
+    phone: newPhone,
+  })
+  .then(() => {
+    alert("Data Updated")
+  })
+  .catch((err) => {
+    alert(err)
+  });
+};
+
 export {
   auth,
   db,
@@ -120,7 +163,9 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
-  changePassword
+  changePassword,
+  updateProfileFirebase,
+  updateData,
 };
 
 export default db;
