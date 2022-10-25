@@ -4,17 +4,11 @@ import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css"
 import Layout from "../Components/Layout";
 import "..//ComponentsCSS/SideMenu.css";
-import db from '../firebase/firebase';
 // import { collection, addDoc } from 'firebase/firestore';
-
+import db from '../firebase/firebase';
 import { auth } from "../firebase/firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs,  addDoc, where } from "firebase/firestore";
-
-let activeStyle = {
-    color: "#80De80",
-    transition: "all 0.2s linear",
-  };
 
 
 export default function AddFoodItem() {
@@ -28,6 +22,9 @@ export default function AddFoodItem() {
 
 
     const [user, loading, error] = useAuthState(auth);
+    // console.log("user", user);
+    // console.log("user uid:", user.uid);
+
 
     const navigate = useNavigate();
 
@@ -40,19 +37,20 @@ export default function AddFoodItem() {
             setUserName(data.name);
             setUserEmail(data.email);
             setUserID(data.uid);
-            console.log(userName);
-            console.log(userEmail);
-            console.log(userID);
+            console.log(data.name);
+            console.log(data.email);
+            console.log(data.uid);
         } catch (err) {
             console.error(err);
             alert("An error occured while fetching user data");
         }
         };
-        useEffect(() => {
+    
+    useEffect(() => {
         if (loading) return;
         if (!user) return navigate("/");
         fetchUserName();
-        }, [user, loading]);
+    }, [user, loading]);
 
 
     const Push = async () => {
@@ -90,7 +88,7 @@ export default function AddFoodItem() {
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Quantity</label>
                     <input id="food-category" 
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                            placeholder="fruit" 
+                            placeholder="3" 
                             required
                             onChange={(e) => setQuantity(e.target.value)}></input>
                 </div>

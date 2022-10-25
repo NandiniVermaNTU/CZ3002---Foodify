@@ -6,15 +6,8 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 //
 //import { Link } from "react-router-dom";
 import "../PagesCSS/Home.css";
-import pic1 from "../Images/FoodifyBckgd.jpg";
-import pic2 from "../Images/HomeImg2.jpg";
 import { NavLink } from "react-router-dom";
 import Layout from "../Components/Layout.js";
-
-let activeStyle = {
-  color: "#80De80",
-  transition: "all 0.2s linear",
-};
 
 
 export default function Profile() {
@@ -39,6 +32,7 @@ export default function Profile() {
   if (!user) return navigate("/");
   fetchUserName();
   }, [user, loading]);
+
   return (
     <section>
       <Layout/>

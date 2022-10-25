@@ -38,7 +38,7 @@ function SideMenu() {
                   <li className="navbar-list-mobile">
                     <NavLink
                       className="navbar-items-mobile"
-                      to="/"
+                      to="/home"
                       style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                       }
