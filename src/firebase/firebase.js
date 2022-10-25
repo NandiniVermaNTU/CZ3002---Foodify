@@ -137,11 +137,11 @@ const updateProfileFirebase = async (newEmail, newName, newPhone) => {
   //
 };
 
-const updateData = async (newName,newEmail,newPhone) => {
+const updateData = (newName,newEmail,newPhone) => {
   const auth = getAuth();
   const user = auth.currentUser;
   const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-  const doc = await getDocs(q);
+  const doc = getDocs(q);
   updateDoc(doc, {
     name: newName,
     email: newEmail,
@@ -152,7 +152,7 @@ const updateData = async (newName,newEmail,newPhone) => {
   })
   .catch((err) => {
     alert(err)
-  })
+  });
 };
 
 export {
@@ -164,7 +164,8 @@ export {
   sendPasswordReset,
   logout,
   changePassword,
-  updateProfileFirebase
+  updateProfileFirebase,
+  updateData,
 };
 
 export default db;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { auth, db, logout, updateProfileFirebase} from "../firebase/firebase.js";
+import { auth, db, logout, updateProfileFirebase, updateData} from "../firebase/firebase.js";
 import { query, collection, getDocs, where } from "firebase/firestore";
 //
 //import { Link } from "react-router-dom";
@@ -44,7 +44,8 @@ const updateProfile = () => {
     else if (!phone) alert("Please enter new phone no.");
     else if (!email) alert("Please enter Email");
     else
-    updateProfileFirebase(email, name, phone);
+    //updateProfileFirebase(email, name, phone);
+    updateData(email, name, phone);
   };
     return (
     <section>
