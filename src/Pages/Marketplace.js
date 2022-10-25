@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../PagesCSS/Marketplace.css";
 import Post from "../Components/Post.js";
 import Layout from "../Components/Layout";
@@ -23,6 +23,10 @@ function Marketplace() {
         </div>
       </div>
 
+      <div class="focus:outline-none mx-1 focus:ring-2  bg-rose-400 focus:ring-rose-700 focus:bg-rose-500 dark:focus:bg-rose-500 flex cursor-pointer items-center justify-center px-3 py-2.5 border rounded border-rose-100 dark:border-rose-800 ">
+          <a  class="focus:outline-none text-xs md:text-sm leading-none text-white dark:text-gray-200" href='/sellfooditem'>+ Post on the market</a>
+      </div>
+
       {/* Searchbar */}
       <div class="flex pt-1 pb-2 pl-1 pr-1">
             <input
@@ -35,6 +39,8 @@ function Marketplace() {
               required
             ></input>
       </div>
+
+      
 
       {/* Post */}
       {/* <div class="flex pt-1 pb-2 pl-1"> */}

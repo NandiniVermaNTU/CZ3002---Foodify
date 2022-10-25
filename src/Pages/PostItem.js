@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Link, useNavigate, NavLink} from "react-router-dom";
 import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css"
@@ -7,13 +7,50 @@ import pic2 from "../Images/HomeImg2.jpg";
 import Layout from "../Components/Layout.js";
 
 
-let activeStyle = {
-    color: "#80De80",
-    transition: "all 0.2s linear",
-  };
-
+import db from '../firebase/firebase';
+import { auth } from "../firebase/firebase.js";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { query, collection, getDocs,  addDoc, where } from "firebase/firestore";
 
 export default function PostItem() {
+    const [title , setTitle] = useState();
+    const [foodItem , setFoodItem] = useState(
+        [
+            {
+                "name": "",
+                "quanity": "",
+                "expiryDate": ""
+            }
+        ]
+    );
+    const [description , setDescription] = useState();
+
+    const [userName, setUserName] = useState();
+    const [userEmail, setUserEmail] = useState();
+    const [userID, setUserID] = useState();
+
+
+    const [user, loading, error] = useAuthState(auth);
+    const navigate = useNavigate();
+
+    const fetchUserName = async () => {
+        try {
+            const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+            const doc = await getDocs(q);
+            const data = doc.docs[0].data();
+            setUserName(data.name);
+            setUserEmail(data.email);
+            setUserID(data.uid);
+            // console.log(userName);
+            // console.log(userEmail);
+            // console.log(userID);
+        } catch (err) {
+            console.error(err);
+            alert("An error occured while fetching user data");
+        }
+    };
+
+
     return (
         <>
         <Layout/>
