@@ -22,10 +22,6 @@ export default function AddFoodItem() {
 
 
     const [user, loading, error] = useAuthState(auth);
-    // console.log("user", user);
-    // console.log("user uid:", user.uid);
-
-
     const navigate = useNavigate();
 
     // Fetch user data
@@ -37,9 +33,9 @@ export default function AddFoodItem() {
             setUserName(data.name);
             setUserEmail(data.email);
             setUserID(data.uid);
-            console.log(data.name);
-            console.log(data.email);
-            console.log(data.uid);
+            console.log(userName);
+            console.log(userEmail);
+            console.log(userID);
         } catch (err) {
             console.error(err);
             alert("An error occured while fetching user data");
