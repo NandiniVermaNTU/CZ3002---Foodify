@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import {Link, useNavigate, NavLink} from "react-router-dom";
 import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css"
-import pic1 from "../Images/FoodifyBckgd.jpg";
-import pic2 from "../Images/HomeImg2.jpg";
 import Layout from "../Components/Layout.js";
-
+import "..//ComponentsCSS/SideMenu.css";
 
 import db from '../firebase/firebase';
 import { auth } from "../firebase/firebase.js";
@@ -13,21 +11,35 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs,  addDoc, where } from "firebase/firestore";
 
 export default function PostItem() {
-    const [title , setTitle] = useState();
-    const [foodItem , setFoodItem] = useState(
+    const [title , setTitle] = useState("");
+    // const [chosenItem, setChosenItem] = useState(
+    //         {
+    //             "name": "chicken",
+    //             "quantity": "1",
+    //             "expiryDate": "29/11/2022"
+    //         }
+    // );
+    const [chosenItem, setChosenItem] = useState("chicken");
+    const [chosenItemQuantity, setChosenItemQuantity] = useState("0");
+    const [chosenItemExpiryDate, setChosenItemExpiryDate] = useState("2022/11/29");
+
+    const [description , setDescription] = useState("");
+    const [status , setStatus] = useState("opened");
+    const [price, setPrice] = useState("0");
+
+    const [userName, setUserName] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+    const [userID, setUserID] = useState("");
+
+    const [foodItems, setFoodItems] = useState(
         [
             {
                 "name": "",
-                "quanity": "",
+                "quantity": "",
                 "expiryDate": ""
             }
         ]
     );
-    const [description , setDescription] = useState();
-
-    const [userName, setUserName] = useState();
-    const [userEmail, setUserEmail] = useState();
-    const [userID, setUserID] = useState();
 
 
     const [user, loading, error] = useAuthState(auth);
@@ -43,77 +55,167 @@ export default function PostItem() {
             setUserID(data.uid);
             // console.log(userName);
             // console.log(userEmail);
-            // console.log(userID);
+            // console.log(userID);f
         } catch (err) {
             console.error(err);
-            alert("An error occured while fetching user data");
+            alert("An error occured while fetching user data User");
         }
     };
+
+    const fetchItems = async () => {
+        try {
+            const q = query(collection(db, "food-items"), where("userID", "==", user?.uid));
+            const doc = await getDocs(q);
+            const items = doc.docs;
+            let itemDocs = items.map(item => item.data());
+            setFoodItems(itemDocs);
+            console.log("fooditem", foodItems);
+        } catch (err) {
+            console.error(err);
+            alert("An error occured while fetching user data Items");
+        }
+    };
+
+    const fetchChosenItem = async () => {
+        try {
+            // const q = db.collection("food-items").where("userID", "==", user?.uid).where("name", "==", chosenItem);
+            const q = query(collection(db, "food-items"), where("userID", "==", user?.uid), where("name", "==", chosenItem));
+            const doc = await getDocs(q);
+            const data = doc.docs[0].data();
+            setChosenItemQuantity(data.quantity);
+            setChosenItemExpiryDate(data.expiryDate);
+        } catch (err) {
+            console.error(err);
+            alert("An error occured while fetching user data fetchData");
+        }
+    };
+
+    useEffect(() => {
+        if (loading) return;
+        if (!user) return navigate("/");
+        fetchUserName();
+    }, [user, loading]);
+
+    useEffect(() => {
+        if (loading) return;
+        if (!user) return navigate("/");
+        fetchItems();
+        // console.log(userName);
+        // console.log(userID);
+        // console.log(userEmail);
+        // console.log(name);
+        // console.log(quantity);
+        // console.log(expiryDate);
+        console.log(foodItems);
+    }, [userName, user, loading]);
+
+    
+    useEffect(() => {
+        if (loading) return;
+        fetchChosenItem();
+
+        console.log("title", title);
+        console.log("itemname", chosenItem);
+        console.log("quantity", chosenItemQuantity);
+        console.log("expirydate", chosenItemExpiryDate);
+        console.log("description", description);
+        console.log("status", status);
+        console.log("price", price);
+        console.log("sellerid", userID, userEmail, userName);
+    }, [chosenItem, loading]);
+
+
+    const Push = async () => {
+        try {
+            const docRef = await addDoc(collection(db, "posts"), {
+            title : title,
+            foodItemName: chosenItem,
+            foodItemQuantity: chosenItemQuantity,
+            foodItemExpiryDate: chosenItemExpiryDate,
+            description : description,
+            status: status,
+            price: price,
+            sellerId: userID,
+            sellerEmail: userEmail,
+            sellerName: userName 
+            });
+            alert("Document written with ID: ", docRef.id);
+          }
+        catch (err) {
+          console.error(err);
+          alert(err.message);
+        }
+      };
 
 
     return (
         <>
         <Layout/>
         <div class="px-4">
-            <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
-
             <form class="bg-white px-8 pt-6 pb-8 mb-4">
                 <div class="mb-6">
                     <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
-                    <input id="food-item" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1 apple" required></input>
-                </div>
-                <div class="mb-6">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Food Item</label>
-                    <input id="food-category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></input>
+                    <input id="title" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                        placeholder="1 apple"
+                        required
+                        onChange={(e) => setTitle(e.target.value)}></input>
                 </div>
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
                     {/* <input id="food-description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="still fresh"></input> */}
-                    <input id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></input>
+                    <input id="description" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="optional"
+                        onChange={(e) => setDescription(e.target.value)}></input>
                 </div>
-                
-                <div class="flex mb-6">
-                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"></input>
-                    <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Opened</label>
+
+
+                <div class="mb-6">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Food Item</label>
+                    {/* <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button> */}
+                    {/* <input id="fooditem" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="optional"
+                        onChange={(e) => setDescription(e.target.value)}></input> */}
+                    <select id="fooditems" 
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            onChange={(e) => setChosenItem(e.target.value)}
+                            >
+                        <option selected>Choose an item</option>
+                        {foodItems.map(foodItem => (
+                            <option key={foodItem.name} value={foodItem.name}>{foodItem.quantity} {foodItem.name}, expiry {foodItem.expiryDate}</option>
+                        ))}
+                    </select>
+                </div>
+
+
+                <div class="mb-6">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
+                    <input id="status" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="opened/unopened"
+                        onChange={(e) => setStatus(e.target.value)}></input>
                 </div>
 
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Price</label>
-                    {/* <input id="food-description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="still fresh"></input> */}
-                    <input id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="3$" required></input>
+                    <input id="price" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                        placeholder="3$" 
+                        required
+                        onChange={(e) => setPrice(e.target.value)}></input>
                 </div>
                 
-                
-                <div class="mb-6">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Upload Image (jpg, png, svg, jpeg)</label>
-                    {/* <label class="inline-block mb-2 text-gray-500">Upload
-                                    Image(jpg,png,svg,jpeg)</label> */}
-                    <div class="flex items-center justify-center w-full">
-                        <label class="flex flex-col w-full h-32 border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
-                            <div class="flex flex-col items-center justify-center pt-7">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="w-12 h-12 text-gray-400 group-hover:text-gray-600" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <p class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
-                                    Select a photo</p>
-                            </div>
-                            <input type="file" class="opacity-0" />
-                        </label>
-                    </div>
-                </div>
-                
-                <button type="submit" class="text-white bg-teal-300 hover:bg-rose-500 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-300 dark:hover:bg-teal-500 dark:focus:ring-teal-700 my-2">Post</button>
-                <button class="text-rose-900 bg-general-color hover:bg-rose-500 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-general-color dark:hover:bg-rose-500 dark:focus:ring-rose-700 my-2">Cancel</button>
+                <button
+                    class="text-white bg-teal-300 hover:bg-rose-500 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-300 dark:hover:bg-teal-500 dark:focus:ring-teal-700 my-2"
+                    onClick={Push}>Post</button>
+                <button class="text-rose-900 bg-general-color hover:bg-rose-500 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-general-color dark:hover:bg-rose-500 dark:focus:ring-rose-700 my-2">
+                    <a href="/marketplace">Cancel</a>
+                </button>
             </form>
 
         </div>
-
-        <script src="https://unpkg.com/flowbite@{{< current_version >}}/dist/datepicker.js"></script>
-
         </>
 
         

@@ -1,11 +1,61 @@
 import React, { useState, useEffect } from "react";
+import {Link, useNavigate, NavLink} from "react-router-dom";
 import "../PagesCSS/Marketplace.css";
 import Post from "../Components/Post.js";
 import Layout from "../Components/Layout";
 
+import db from '../firebase/firebase';
+import { auth } from "../firebase/firebase.js";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { query, collection, getDocs,  addDoc, where } from "firebase/firestore";
+
 function Marketplace() {
 
   const [query,setQuery] = useState("");
+
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+ 
+
+  const [Posts, setPosts] = useState(
+    [
+        {
+            "title": "",
+            "description": "",
+            "foodItemName": "",
+            "foodItemQuantity": "",
+            "foodItemExpiryDate": "",
+            "status": "",
+            "price": "",
+            "sellerEmail": "", 
+            "sellerName": "",
+            "sellerID": "",
+        }
+    ]
+);
+
+  const fetchPosts = async () => {
+    try {
+        const q = query(collection(db, "posts"));
+        const doc = await getDocs(q);
+        const items = doc.docs;
+        let itemDocs = items.map(item => item.data());
+        setPosts(itemDocs);
+        // console.log("itemdoc:", itemDocs);
+        // console.log("fooditem", foodItems);
+    } catch (err) {
+        console.error(err);
+        alert("An error occured while fetching user data");
+    }
+  };
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return navigate("/");
+    fetchPosts();
+    console.log(Posts);
+  }, [user, loading]);
+
     return (
     <section>
       <Layout/>
