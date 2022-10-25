@@ -31,13 +31,18 @@
 .navbar-mobile {
   background-color: #ffdacc;
   text-align: right;
-  margin-left: -6.8rem;
+  margin-left: -7rem;
 }
 
 .navbar-ul-mobile {
   overflow: hidden;
   display: inline-block;
   margin-right: 16px;
+  position: absolute;
+  z-index: 100;
+  background-color: #ffdacc;
+  padding: 0 9px 0 3px;
+  opacity: 0.9;
 }
 
 .navbar-list-mobile {
