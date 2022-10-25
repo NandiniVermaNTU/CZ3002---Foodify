@@ -37,7 +37,7 @@
 .navbar-ul-mobile {
   overflow: hidden;
   display: inline-block;
-  margin-right: 16px;
+  margin-right: 14px;
   position: absolute;
   z-index: 100;
   background-color: #ffdacc;
