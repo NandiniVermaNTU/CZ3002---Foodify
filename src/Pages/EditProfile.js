@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { auth, db, logout } from "../firebase/firebase.js";
+import { auth, db, logout, updateProfileFirebase} from "../firebase/firebase.js";
 import { query, collection, getDocs, where } from "firebase/firestore";
 //
 //import { Link } from "react-router-dom";
@@ -15,9 +15,12 @@ let activeStyle = {
 
 export default function EditProfile() {
 const [user, loading, error] = useAuthState(auth);
+const [email, setEmail] = useState("");
 const [name, setName] = useState("");
 const [phone, setPhone] = useState("");
 const navigate = useNavigate();
+
+//const [savedPhone, setSavedPhone] = useState("");
 const fetchUserName = async () => {
 try {
     const q = query(collection(db, "users"), where("uid", "==", user?.uid));
@@ -25,6 +28,7 @@ try {
     const data = doc.docs[0].data();
     setName(data.name);
     setPhone(data.phone);
+    setEmail(user?.email);
 } catch (err) {
     console.error(err);
     alert("An error occured while fetching user data");
@@ -35,6 +39,13 @@ if (loading) return;
 if (!user) return navigate("/");
 fetchUserName();
 }, [user, loading]);
+const updateProfile = () => {
+    if (!name) alert("Please enter new name");
+    else if (!phone) alert("Please enter new phone no.");
+    else if (!email) alert("Please enter Email");
+    else
+    updateProfileFirebase(email, name, phone);
+  };
     return (
     <section>
         <Layout/>
@@ -48,21 +59,30 @@ fetchUserName();
             <form class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
                 {/* <div class="mb-6">
                     <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">Userame*</label>
-                    <input id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={name} required></input>
+                    <input id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={name} ></input>
                 </div> */}
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Registered Email*</label>
-                    <input id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={user?.email} required></input>
+                    <input id="email" 
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={email} 
+                    ></input>
                 </div>
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
                     <input id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     placeholder={name}
                     ></input>
                 </div>
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone Number</label>
                     <input id="phonenumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     placeholder={phone}
                     ></input>
                 </div>
@@ -72,7 +92,13 @@ fetchUserName();
                     Click here to Change Password <br/> <br/></a> 
                 </div>
                 
-                <button type="submit" class="text-white bg-teal-300 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-300 dark:hover:bg-teal-500 dark:focus:ring-teal-700 my-2">Update</button>
+                <button 
+                    //type="submit" 
+                    class="text-white bg-teal-300 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-300 dark:hover:bg-teal-500 dark:focus:ring-teal-700 my-2"
+                    onClick={(updateProfile)}
+                    >
+                    Update
+                </button>
                 <button class="text-rose-900 bg-general-color hover:bg-rose-500 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-general-color dark:hover:bg-rose-500 dark:focus:ring-rose-700 my-2">Cancel</button>
             </form>
 
