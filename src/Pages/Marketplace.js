@@ -36,11 +36,12 @@ function Marketplace() {
 
   const fetchPosts = async () => {
     try {
-        const q = query(collection(db, "posts"));
-        const doc = await getDocs(q);
+        const colRef = collection(db, "posts");
+        const doc = await getDocs(colRef);
         const items = doc.docs;
         let itemDocs = items.map(item => item.data());
         setPosts(itemDocs);
+        console.log(itemDocs);
         // console.log("itemdoc:", itemDocs);
         // console.log("fooditem", foodItems);
     } catch (err) {
@@ -53,7 +54,7 @@ function Marketplace() {
     if (loading) return;
     if (!user) return navigate("/");
     fetchPosts();
-    console.log(Posts);
+    // console.log(Posts);
   }, [user, loading]);
 
     return (
@@ -96,9 +97,46 @@ function Marketplace() {
       {/* <div class="flex pt-1 pb-2 pl-1"> */}
 
       {/* <div class="flex pt-1 pb-2 pl-1.5"> */}
-      <div class="flex pt-1 pb-2 pl-1">
-        <Post /> 
-      </div>
+      {/* <div class="flex pt-1 pb-2 pl-1"> */}
+      {Posts.map(post => (
+            <div class="w-full px-5 pt-5 item-center">
+                <div class="border rounded-lg border border-gray-200 dark:border-gray-700 ">
+                    <table class="w-full">
+                        <tbody>  
+                            {/* <li key={recipe.title}> */}
+                                {/* {fetchMissIngredient} */}
+                                <tr tabindex="0" class="focus:outline-none flex-auto bg-lime-50  ">
+                                    <td>
+                                        <div class="bg-lime-100">
+                                            <p class="px-5 py-2 font-semibold text-gray-600 dark:text-white">{post.title}</p>
+                                        </div>
+
+                                        <p class="px-5 pt-5 text-gray-800 dark:text-white"><span class="font-semibold">Seller: </span> {post.sellerName} ({post.sellerEmail})</p>
+                                        <p class="px-5 pt-1 text-gray-800 dark:text-white"><span class="font-semibold">Item: </span> {post.foodItemQuantity} {post.foodItemName}</p>
+                                        <p class="px-5 pt-1 text-gray-800 dark:text-white"><span class="font-semibold">Expiry: </span> {post.foodItemExpiryDate}</p>
+                                        <p class="px-5 pt-1 text-gray-800 dark:text-white"><span class="font-semibold">Price: </span> {post.price}</p>
+                                        <p class="px-5 pt-1 text-gray-800 dark:text-white"><span class="font-semibold">Status: </span> {post.status}</p>
+                                        <p class="px-5 pt-1 pb-5 text-gray-800 dark:text-white"><span class="font-semibold">Description: </span> {post.description}</p>
+                                      
+                                    </td>
+                                </tr>                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            ))}        
+
+            {/* <Post title={post.title} 
+                  name={post.sellerName}
+                  email={post.sellerEmail}
+                  foodItem={post.foodItemName}
+                  quantity={post.foodItemQuantity}
+                  expiry={post.foodItemExpiryDate}
+                  price={post.price}
+                  status={post.status}
+                  description={post.description}></Post>  */}
+        
+      {/* </div> */}
 
     </section>
     );

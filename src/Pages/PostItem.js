@@ -19,7 +19,7 @@ export default function PostItem() {
     //             "expiryDate": "29/11/2022"
     //         }
     // );
-    const [chosenItem, setChosenItem] = useState("chicken");
+    const [chosenItem, setChosenItem] = useState("a");
     const [chosenItemQuantity, setChosenItemQuantity] = useState("0");
     const [chosenItemExpiryDate, setChosenItemExpiryDate] = useState("2022/11/29");
 
@@ -86,7 +86,7 @@ export default function PostItem() {
             setChosenItemExpiryDate(data.expiryDate);
         } catch (err) {
             console.error(err);
-            alert("An error occured while fetching user data fetchData");
+            // alert("An error occured while fetching user data fetchData");
         }
     };
 
