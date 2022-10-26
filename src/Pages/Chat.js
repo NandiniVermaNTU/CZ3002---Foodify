@@ -8,37 +8,92 @@ import PAY from "../Images/pay(new).jpg";
 import ENDCHAT from "../Images/endchatnew.jpg";
 import SEND from "../Images/send.png";
 
+import db from '../firebase/firebase';
+import { auth } from "../firebase/firebase.js";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { query, collection, getDocs,  addDoc, where, deleteDoc, doc } from "firebase/firestore";
+
 function Chat() {
 
-    const delay = ms => new Promise(
-      resolve => setTimeout(resolve, ms)
-    );
+    const [user, loading, error] = useAuthState(auth);
+    const navigate = useNavigate();
 
     const [searchParams] = useSearchParams();
 
     const [show, setShow] = useState(false);
+    const [delItem, setDelItem] = useState("");
+    const [delPostID, setDelPostID] = useState("");
+    const [delItemID, setDelItemID] = useState("");
+
+    const [delSellerEmail, setDelSellerEmail] = useState("")
     // console.log(searchParams.get("foodItem"));
+   
+    useEffect(() => {
+      console.log(delItem);
+      console.log(delSellerEmail);
+      handleDelete();
+    }, [show]);
 
-    const navigate = useNavigate();
+    const handleDelete = async () => {
+      console.log("in deleteitem");
+      const q1 = query(collection(db, "posts"), where("foodItemName", "==", delItem), where("sellerEmail", "==", delSellerEmail))
+      .then(() => {
+        console.log("queried q1 succ")
+    })
+    .catch(error => {
+        console.log(error);
+    });
+      const doc1 = await getDocs(q1);
+      // const data1 = doc.docs[0].data();
+      console.log(doc1.docs[0]);
+      setDelPostID(doc1.docs[0].id);
+      // console.log("delPostID", delPostID);
+      // console.log("dataid:", delPostID);
 
-    const handlePay = () => {
-      // showDiv();
-      setShow(true);
-      console.log(show);   
-      
+      const q2 = query(collection(db, "food-items"), where("name", "==", delItem), where("userEmail", "==", delSellerEmail));
+      const doc2 = await getDocs(q2);
+      setDelItemID(doc2.docs[0].id);
+
+      deletePost();
+      deleteItem();
     }
 
-    function showDiv() {
-      document.getElementById('welcomeDiv').style.display = "block";
-   }
-   
-  //  useEffect(() => {
-  //   delay(10000);
-  //   navigate({
-  //     pathname: "/marketplace",
-  //   })
-  //   // console.log(Posts);
-  // }, [show]);
+    const deletePost = () => { 
+      console.log("delPostID=", delPostID);
+      deleteDoc(doc(db, "post", delPostID))
+      .then(() => {
+          console.log("Post deleted. postID=", delPostID)
+      })
+      .catch(error => {
+          console.log(error);
+      });
+    }
+
+    const deleteItem = () => { 
+      console.log("delItemID=", delItemID)
+      deleteDoc(doc(db, "food-items", delItemID))
+      .then(() => {
+          console.log("Item delted, item id=", delItemID)
+      })
+      .catch(error => {
+          console.log(error);
+      });
+    }
+
+    // const deleteAction = async (col, docid) => {
+    //   await deleteDoc(doc(db, col, docid));
+    // }
+
+    // const q = query(collection(db, "posts"), where("foodItemName", "==", delItem), where("sellerEmail", "==", delSellerEmail));
+      // console.log(q)
+      // const doc = await getDocs(q);
+      // deleteDoc(doc)
+      //   .then(() => {
+      //       console.log("Entire Document has been deleted successfully.")
+      //   })
+      //   .catch(error => {
+      //       console.log(error);
+      //   })
 
     return (
     <section>
@@ -66,8 +121,6 @@ function Chat() {
                 <div class="rounded-lg ">
                     <table class="w-full border border-gray-200">
                         <tbody>  
-                            {/* <li key={recipe.title}> */}
-                                {/* {fetchMissIngredient} */}
                                 <div class="bg-lime-100">
                                   <p class="px-5 py-2 font-semibold text-gray-600 dark:text-white text-center">Item Info</p>
                                 </div>
@@ -106,22 +159,35 @@ function Chat() {
           </div>
 
           <div class="flex justify-center lg:justify-start mt-10">
-
+            {
+              !show &&
+              <>
               <div class="mx-7 px-5 py-3 rounded-2xl bg-teal-700 text-white text-sm font-semibold rounded hover:bg-teal-500" id="my-modal">
                 <button onClick={() => {
+                  setDelItem(searchParams.get("foodItem"));
+                  setDelSellerEmail(searchParams.get("sellerEmail"));
                   setShow(true);
                   console.log(show);
+                  console.log(delItem);
+                  console.log(delSellerEmail);
+                  // deleteItem();
                 }}>Pay</button></div>
               <div class="mx-7 px-5 py-3 rounded-2xl bg-red-300 text-gray-700 text-sm font-semibold rounded hover:bg-gray-200"><a href="/marketplace">End</a></div>
+              </>
+            }
+              
           </div>
 
         <div class="pt-10">
           {
             show && 
+            <>
             <div class="transition delay-1500 bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
               <p class="font-bold  delay-5000">Payment successful</p>
               <p class="text-sm  delay-10000">Thank you! payment successful</p>
             </div>
+            {/* <div class="mx-auto px-5 py-3 rounded-2xl bg-gray-300 text-gray-700 text-sm font-semibold rounded hover:bg-gray-200 items-center"><a href="/marketplace">Go back marketplace</a></div> */}
+            </>
           }
         </div>
             

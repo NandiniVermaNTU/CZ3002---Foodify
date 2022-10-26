@@ -127,9 +127,9 @@ export default function PostItem() {
     }, [chosenItem, loading]);
 
 
-    const Push = async () => {
+    const Push = () => {
         try {
-            const docRef = await addDoc(collection(db, "posts"), {
+            const docRef = addDoc(collection(db, "posts"), {
             title : title,
             foodItemName: chosenItem,
             foodItemQuantity: chosenItemQuantity,

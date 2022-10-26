@@ -10,11 +10,10 @@ import { auth } from "../firebase/firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs,  addDoc, where } from "firebase/firestore";
 
-
 export default function AddFoodItem() {
-    const [name , setName] = useState();
-    const [quantity , setQuantity] = useState();
-    const [expiryDate , setExpiryDate] = useState();
+    const [name, setName] = useState();
+    const [quantity, setQuantity] = useState();
+    const [expiryDate, setExpiryDate] = useState();
 
     const [userName, setUserName] = useState();
     const [userEmail, setUserEmail] = useState();
@@ -49,9 +48,9 @@ export default function AddFoodItem() {
     }, [user, loading]);
 
 
-    const Push = async () => {
+    const Push = () => {
         try {
-            const docRef = await addDoc(collection(db, "food-items"), {
+            const docRef = addDoc(collection(db, "food-items"), {
             name : name,
             quantity : quantity,
             expiryDate : expiryDate,
