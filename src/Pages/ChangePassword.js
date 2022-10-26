@@ -1,8 +1,14 @@
-
-import React, { useState } from "react";
+//
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db, logout } from "../firebase/firebase.js";
+import { query, collection, getDocs, where } from "firebase/firestore";
+//
+import React, { useEffect, useState } from "react";
 import Layout from "../Components/Layout";
 import SideMenu from "../Components/SideMenu";
-import { changePassword } from "../firebase/firebase";
+import { changePassword} from "../firebase/firebase";
+import { Link, useNavigate } from "react-router-dom";
+
 //import { Link } from "react-router-dom";
 import "../PagesCSS/Home.css";
 
@@ -13,8 +19,15 @@ let activeStyle = {
 
 
 function ChangePassword() {
+const [user, loading, error] = useAuthState(auth);
 const [curPassword, setCurPassword] = useState("");
 const [newPassword, setNewPassword] = useState("");
+const navigate = useNavigate();
+useEffect(() => {
+    if (loading) return;
+    if (!user) return navigate("/");
+    //fetchUserName();
+  }, [user, loading]);
   return (
 
     
@@ -26,7 +39,7 @@ const [newPassword, setNewPassword] = useState("");
 
 
         <div class="px-4">
-            <form class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
+            <div class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
                 <div class="mb-6">
                     <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">Old Password</label>
                     <input 
@@ -52,8 +65,12 @@ const [newPassword, setNewPassword] = useState("");
                     onClick={() => changePassword(curPassword, newPassword)} >
                     Confirm
                 </button>
-                <button class="text-rose-900 bg-general-color hover:bg-rose-500 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-general-color dark:hover:bg-rose-500 dark:focus:ring-rose-700 my-2">Cancel</button>
-            </form>
+                <Link to="/editprofile">
+                <button class="text-rose-900 bg-general-color hover:bg-rose-500 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-general-color dark:hover:bg-rose-500 dark:focus:ring-rose-700 my-2"
+                    >Cancel
+                </button>
+                </Link>
+            </div>
 
         </div>
     </section>

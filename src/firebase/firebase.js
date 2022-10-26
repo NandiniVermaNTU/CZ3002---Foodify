@@ -7,6 +7,7 @@ import {
         createUserWithEmailAndPassword,
         sendPasswordResetEmail,
         signOut,
+        EmailAuthProvider,
 } from "firebase/auth";
 import {reauthenticateWithCredential, updatePassword } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
@@ -98,19 +99,20 @@ const logout = () => {
 };
 
 //
-const reauthenticate = (currentPassword) => {
+const reauthenticate = async(currentPassword) => {
   //const auth = getAuth(app);
   var user = auth.currentUser;
-  var cred = auth.EmailAuthProvider.credential(
+  var cred = EmailAuthProvider.credential(
       user.email, currentPassword);
-  return user.reauthenticateWithCredential(cred);
+  return await reauthenticateWithCredential(user, cred);
 };
 
 const changePassword = (currentPassword, newPassword) => {
   reauthenticate(currentPassword).then(() => {
     var user = auth.currentUser;
     updatePassword(user, newPassword).then(() => {
-      console.log("Password updated!");
+      alert("Password updated!");
+      logout();
     }).catch((error) => { console.log(error); });
   }).catch((error) => { console.log(error); });
 };
