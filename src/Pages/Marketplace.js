@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Link, useNavigate, NavLink} from "react-router-dom";
+import {Link, createSearchParams, useNavigate, NavLink} from "react-router-dom";
 import "../PagesCSS/Marketplace.css";
 import Post from "../Components/Post.js";
 import Layout from "../Components/Layout";
@@ -8,6 +8,9 @@ import db from '../firebase/firebase';
 import { auth } from "../firebase/firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs,  addDoc, where } from "firebase/firestore";
+
+import pic1 from "../Images/chat-icon.png";
+import "../Pages/Chat.js";
 
 function Marketplace() {
 
@@ -57,6 +60,28 @@ function Marketplace() {
     // console.log(Posts);
   }, [user, loading]);
 
+
+
+  const handleClick = (post) => {
+    console.log(post);
+    navigate({
+      pathname:  "/chat",
+      search: createSearchParams({
+        sellerName: post.sellerName,
+        sellerEmail: post.sellerEmail,
+        sellerPhone: post.sellerPhone,
+        foodItem: post.foodItemName,
+        foodItemExpiryDate: post.foodItemExpiryDate,
+        foodItemQuantity: post.foodItemQuantity,
+        price: post.price,
+        status: post.status,
+        description: post.description,
+
+      }).toString()
+    });
+
+  }
+
     return (
     <section>
       <Layout/>
@@ -74,12 +99,12 @@ function Marketplace() {
         </div>
       </div>
 
-      <div class="focus:outline-none mx-1 focus:ring-2  bg-rose-400 focus:ring-rose-700 focus:bg-rose-500 dark:focus:bg-rose-500 flex cursor-pointer items-center justify-center px-3 py-2.5 border rounded border-rose-100 dark:border-rose-800 ">
+      <div class="focus:outline-none mx-5 focus:ring-2  bg-rose-400 focus:ring-rose-700 focus:bg-rose-500 dark:focus:bg-rose-500 flex cursor-pointer items-center justify-center px-3 py-2.5 border rounded border-rose-100 dark:border-rose-800 ">
           <a  class="focus:outline-none text-xs md:text-sm leading-none text-white dark:text-gray-200" href='/sellfooditem'>+ Post on the market</a>
       </div>
 
       {/* Searchbar */}
-      <div class="flex pt-1 pb-2 pl-1 pr-1">
+      {/* <div class="flex pt-1 pb-2 pl-1 pr-1">
             <input
               type="text"
               id = "searchbar"
@@ -89,7 +114,7 @@ function Marketplace() {
               placeholder="Search food item"
               required
             ></input>
-      </div>
+      </div> */}
 
       
 
@@ -105,7 +130,7 @@ function Marketplace() {
                         <tbody>  
                             {/* <li key={recipe.title}> */}
                                 {/* {fetchMissIngredient} */}
-                                <tr tabindex="0" class="focus:outline-none flex-auto bg-lime-50  ">
+                                <tr tabindex="0" class="focus:outline-none flex-auto ">
                                     <td>
                                         <div class="bg-lime-100">
                                             <p class="px-5 py-2 font-semibold text-gray-600 dark:text-white">{post.title}</p>
@@ -119,7 +144,22 @@ function Marketplace() {
                                         <p class="px-5 pt-1 pb-5 text-gray-800 dark:text-white"><span class="font-semibold">Description: </span> {post.description}</p>
                                       
                                     </td>
-                                </tr>                            
+                                </tr> 
+                                <button onClick={() => {
+                                  console.log(post);
+                                  handleClick(post)
+                                }} >
+                                        <div class="chat-button">
+                                        
+                                            <img
+                                            class="img-responsive"
+                                            src={pic1}
+                                            alt="chat-icon"
+                                            className="Post-chat-icon-img1"
+                                        />
+                                       
+                                      </div>
+                                </button>                           
                         </tbody>
                     </table>
                 </div>

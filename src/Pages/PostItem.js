@@ -30,6 +30,7 @@ export default function PostItem() {
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userID, setUserID] = useState("");
+    const [userPhone, setUserPhone] = useState("");
 
     const [foodItems, setFoodItems] = useState(
         [
@@ -53,6 +54,7 @@ export default function PostItem() {
             setUserName(data.name);
             setUserEmail(data.email);
             setUserID(data.uid);
+            setUserPhone(data.phone);
             // console.log(userName);
             // console.log(userEmail);
             // console.log(userID);f
@@ -121,7 +123,7 @@ export default function PostItem() {
         console.log("description", description);
         console.log("status", status);
         console.log("price", price);
-        console.log("sellerid", userID, userEmail, userName);
+        console.log("sellerid", userID, userEmail, userName, userPhone);
     }, [chosenItem, loading]);
 
 
@@ -137,7 +139,8 @@ export default function PostItem() {
             price: price,
             sellerId: userID,
             sellerEmail: userEmail,
-            sellerName: userName 
+            sellerName: userName,
+            sellerPhone: userPhone,
             });
             alert("Document written with ID: ", docRef.id);
           }
