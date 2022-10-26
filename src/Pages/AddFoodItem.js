@@ -37,7 +37,7 @@ export default function AddFoodItem() {
             console.log(userID);
         } catch (err) {
             console.error(err);
-            alert("An error occured while fetching user data");
+            console.log("An error occured while fetching user data");
         }
         };
     
@@ -58,7 +58,7 @@ export default function AddFoodItem() {
             userName: userName,
             userID: userID
             });
-            alert("Document written with ID: ", docRef.id);
+            console.log("Document written with ID: ", docRef.id);
           }
         catch (err) {
           console.error(err);

@@ -34,51 +34,79 @@ function Chat() {
       handleDelete();
     }, [show]);
 
+    // const handleDelete2 = () => {
+    //   var deleteItem = db.collection('posts').where('job_id','==',post.job_id);
+    //   jobskill_query.get().then(function(querySnapshot) {
+    //     querySnapshot.forEach(function(doc) {
+    //       doc.ref.delete();
+    //     });
+    //   });
+    // }
+
     const handleDelete = async () => {
-      console.log("in deleteitem");
-      const q1 = query(collection(db, "posts"), where("foodItemName", "==", delItem), where("sellerEmail", "==", delSellerEmail))
-      .then(() => {
-        console.log("queried q1 succ")
-    })
-    .catch(error => {
-        console.log(error);
-    });
-      const doc1 = await getDocs(q1);
-      // const data1 = doc.docs[0].data();
-      console.log(doc1.docs[0]);
-      setDelPostID(doc1.docs[0].id);
+      console.log("in handledelete");
+      
+      // setDelPostID(doc1.docs[0].id);
       // console.log("delPostID", delPostID);
       // console.log("dataid:", delPostID);
 
       const q2 = query(collection(db, "food-items"), where("name", "==", delItem), where("userEmail", "==", delSellerEmail));
       const doc2 = await getDocs(q2);
-      setDelItemID(doc2.docs[0].id);
+      // setDelItemID(doc2.docs[0].id);
+      const q1 = query(collection(db, "posts"), where("foodItemName", "==", delItem), where("sellerEmail", "==", delSellerEmail));
+      const doc1 = await getDocs(q1);
+      // const data1 = doc.docs[0].data();
+      // console.log(doc1.docs[0].id);
+      
 
-      deletePost();
-      deleteItem();
-    }
-
-    const deletePost = () => { 
-      console.log("delPostID=", delPostID);
-      deleteDoc(doc(db, "post", delPostID))
+      console.log("delItemID=", doc2.docs[0].id)
+      deleteDoc(doc(db, "food-items", doc2.docs[0].id))
       .then(() => {
-          console.log("Post deleted. postID=", delPostID)
+          console.log("Item delted, item id=", doc2.docs[0].id)
       })
       .catch(error => {
           console.log(error);
       });
+
+      console.log("delPostID=", doc1.docs[0].id);
+      try {
+        deleteDoc(doc(db, "post", doc1.docs[0].id))
+        // db.collection("posts").document(doc1.docs[0].id)
+      .then(() => {
+          console.log("Post deleted. postID=", doc1.docs[0].id);
+      })
+      } catch (err) {
+        console.error(err);
+        alert(err.message);
+      }
+
+      
+      
+      // deletePost();
+      // deleteItem();
     }
 
-    const deleteItem = () => { 
-      console.log("delItemID=", delItemID)
-      deleteDoc(doc(db, "food-items", delItemID))
-      .then(() => {
-          console.log("Item delted, item id=", delItemID)
-      })
-      .catch(error => {
-          console.log(error);
-      });
-    }
+    // const deletePost = () => { 
+    //   console.log("delPostID=", delPostID);
+    //   deleteDoc(doc(db, "post", delPostID))
+    //   .then(() => {
+    //       console.log("Post deleted. postID=", delPostID)
+    //   })
+    //   .catch(error => {
+    //       console.log(error);
+    //   });
+    // }
+
+    // const deleteItem = () => { 
+    //   console.log("delItemID=", delItemID)
+    //   deleteDoc(doc(db, "food-items", delItemID))
+    //   .then(() => {
+    //       console.log("Item delted, item id=", delItemID)
+    //   })
+    //   .catch(error => {
+    //       console.log(error);
+    //   });
+    // }
 
     // const deleteAction = async (col, docid) => {
     //   await deleteDoc(doc(db, col, docid));
@@ -115,7 +143,7 @@ function Chat() {
             <h1 className="Post-heading1"> Description: </h1>
             <h1 className="Post-heading1"> Image: </h1>
         </div>
-      </div> */}
+      </div> */}
 
         <div class="w-full px-5 pt-5 item-center">
                 <div class="rounded-lg ">
@@ -223,7 +251,6 @@ function Chat() {
           </ul>
           </nav>
           </button>
-
           <button class="flex ml-10">
           <nav>
           <ul>
@@ -238,7 +265,6 @@ function Chat() {
           </ul>
           </nav>
           </button>
-
       </div> */}
 
     </section>

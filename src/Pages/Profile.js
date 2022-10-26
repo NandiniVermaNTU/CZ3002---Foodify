@@ -70,9 +70,9 @@ export default function Profile() {
             <a class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" href="/editprofile">Edit Profile</a>
         </div>
 
-        <div class="flex px-5 justify-center lg:justify-start">
+        {/* <div class="flex px-5 justify-center lg:justify-start">
             <a class="flex-grow mx-4 my-3 px-4 py-3 bg-red-400 text-white text-sm font-semibold rounded hover:bg-red-600" href="/deleteaccount">Delete Account</a>
-        </div>
+        </div> */}
 
 
 

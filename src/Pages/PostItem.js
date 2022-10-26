@@ -142,11 +142,11 @@ export default function PostItem() {
             sellerName: userName,
             sellerPhone: userPhone,
             });
-            alert("Document written with ID: ", docRef.id);
+            console.log("Document written with ID: ", docRef.id);
           }
         catch (err) {
           console.error(err);
-          alert(err.message);
+          console.log(err.message);
         }
       };
 
