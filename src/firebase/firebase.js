@@ -17,8 +17,10 @@ import {
   collection,
   where,
   addDoc,
-  updateDoc
+  updateDoc,
+  doc
 } from "firebase/firestore";
+//import firestore from "firebase";
 import { data } from "autoprefixer";
 const firebaseConfig = {
     apiKey: "AIzaSyADIeFkZCwAUDdChxmnAx-O_3G_0l_UPLY",
@@ -112,47 +114,21 @@ const changePassword = (currentPassword, newPassword) => {
     }).catch((error) => { console.log(error); });
   }).catch((error) => { console.log(error); });
 };
-//
-const updateProfileFirebase = async (newEmail, newName, newPhone) => {
+const updateProfile = async(id, newName, newPhone) => {
   try {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    // const profileRef = collection(db, "users");
-    //
-    const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-    //const doc = await getDocs(q);
-    alert("Debug3");
-    // const data = doc.docs[0].data();
-    await updateDoc(q, {
-      name: newPhone,
-      authProvider: "local",
-      email: newEmail,
-      phone: newName,
+    const q = query(collection(db, "users"), where("uid", "==", id));
+    const docRef = await getDocs(q);
+    const key = docRef.docs[0].id;
+    const ref = doc(db, "users", key);
+    console.log(ref);
+    await updateDoc(ref, {
+      name: newName,
+      phone: newPhone,
     });
     alert("Data Updated");
   } catch (err) {
     console.error(err);
-    alert(err.message);
   }
-  //
-};
-
-const updateData = (newName,newEmail,newPhone) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-  const doc = getDocs(q);
-  updateDoc(doc, {
-    name: newName,
-    email: newEmail,
-    phone: newPhone,
-  })
-  .then(() => {
-    alert("Data Updated")
-  })
-  .catch((err) => {
-    alert(err)
-  });
 };
 
 export {
@@ -164,8 +140,7 @@ export {
   sendPasswordReset,
   logout,
   changePassword,
-  updateProfileFirebase,
-  updateData,
+  updateProfile,
 };
 
 export default db;
