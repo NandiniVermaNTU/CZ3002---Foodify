@@ -14,7 +14,7 @@ export default function Notification() {
   const form = useRef();
 
   function sendEmail(e) {
-    e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
+    e.preventDefault();    
 
     emailjs.send('gmail', 'template_g00zyy7', templateParams, key)
         .then(function(response) {

@@ -3,8 +3,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, db, updateProfile} from "../firebase/firebase.js";
 import { query, collection, getDocs, where } from "firebase/firestore";
-//
-//import { Link } from "react-router-dom";
 import "../PagesCSS/Home.css";
 import Layout from "../Components/Layout";
 let activeStyle = {
@@ -52,23 +50,7 @@ const doUpdate = () => {
         alert("An error occured while fetching user data");
     }
 };
-// const testUpdate = () => {
-//     try {
-//         if (!name) {
-//             alert("Please enter new name");
-//         }
-//         if (!phone) {
-//             alert("Please enter new phone no.");
-//         }
-//         else {
-//             console.log(user.uid, name, phone);
-//             updateProfile(user.uid, "John Doe", "Tomato");
-//         }
-//     } catch (err) {
-//         console.error(err);
-//         alert("An error occured while fetching user data");
-//     }
-// };
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
@@ -79,25 +61,11 @@ const doUpdate = () => {
         <Layout/>
         <div class="flex items-center text-center pt-10 pb-5 px-10">
             <div class="flex items-center text-3xl font-semibold text-gray-800 md:text-4xl">Edit Profile</div>
-            {/* <div class="flex text-xl items-center">My Profile</div> */}
         </div>
 
 
         <div class="px-4">
             <div class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100">
-                {/* <div class="mb-6">
-                    <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">Userame*</label>
-                    <input id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={name} ></input>
-                </div> */}
-                {/* <div class="mb-6">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Registered Email*</label>
-                    <input id="email" 
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={email} 
-                    ></input>
-                </div> */}
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
                     <input id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -136,24 +104,5 @@ const doUpdate = () => {
 
         </div>
     </section>
-    // <div class="w-full">
-    //     <div class="flex bg-white" style="height:600px;">
-    //         <div class="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2">
-    //             <div>
-    //                 <h2 class="text-3xl font-semibold text-gray-800 md:text-4xl">Build Your New <span class="text-indigo-600">Idea</span></h2>
-    //                 <p class="mt-2 text-sm text-gray-500 md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates. Cumque debitis dignissimos id quam vel!</p>
-    //                 <div class="flex justify-center lg:justify-start mt-6">
-    //                     <a class="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="#">Get Started</a>
-    //                     <a class="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400" href="#">Learn More</a>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //         {/* <div class="hidden lg:block lg:w-1/2" style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)">
-    //             <div class="h-full object-cover" style="background-image: url(https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80)">
-    //                 <div class="h-full bg-black opacity-25"></div>
-    //             </div>
-    //         </div> */}
-    //     </div>
-    // </div>
   );
 } export default EditProfile;

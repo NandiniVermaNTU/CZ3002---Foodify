@@ -108,18 +108,10 @@ function Myitem() {
                             <tr tabindex="0" class="focus:outline-none flex-auto">
                                 <td>
                                     <div class="flex items-center py-5">
-                                        {/* <div class="bg-gray-100 dark:bg-gray-800  rounded-sm p-2.5">
-                                           <img src="../Images/chicken-icon.jpg" alt="chicken" />
-                                        </div> */}
                                         <div class="pl-3">
                                             <div class="flex items-center text-sm leading-none">
                                                 <p class="font-semibold text-gray-800 dark:text-white pr-5">{fooditem.quantity} {fooditem.name}</p>
-                                                {/* <p class="text-indigo-700 dark:text-indigo-400  ml-3">10/10/2022</p> */}
-                                                {/* <div class="flex items-center justify-center py-1 bg-orange-100 rounded-full">
-                                                    <p class="text-xs font-semibold leading-none leading-3 text-orange-700 px-5">20/10/2022</p>
-                                                </div> */}
                                             </div>
-                                            {/* <p class="text-xs md:text-sm leading-none text-gray-600 dark:text-gray-200  mt-2">Description of chickens here</p> */}
                                         </div>
                                     </div>
                                 </td>
@@ -147,10 +139,6 @@ function Myitem() {
         <div class="flex justify-center lg:justify-start mt-5 px-5">
             <a class="px-4 py-3 bg-teal-500 text-white text-sm font-semibold rounded hover:bg-teal-700" href="/recipe">Recipes Recommendation</a>
         </div>
-
-
-
-
 
     </div>
 

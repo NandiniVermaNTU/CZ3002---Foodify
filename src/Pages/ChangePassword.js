@@ -9,7 +9,6 @@ import SideMenu from "../Components/SideMenu";
 import { changePassword} from "../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
 
-//import { Link } from "react-router-dom";
 import "../PagesCSS/Home.css";
 
 let activeStyle = {
@@ -26,7 +25,6 @@ const navigate = useNavigate();
 useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
-    //fetchUserName();
   }, [user, loading]);
   return (
 

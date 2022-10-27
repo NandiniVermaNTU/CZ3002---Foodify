@@ -21,7 +21,6 @@ import {
   updateDoc,
   doc
 } from "firebase/firestore";
-//import firestore from "firebase";
 import { data } from "autoprefixer";
 const firebaseConfig = {
     apiKey: "AIzaSyADIeFkZCwAUDdChxmnAx-O_3G_0l_UPLY",
@@ -35,8 +34,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-//Yen add 
-// var database = app.database();
 
 //const analytics = getAnalytics(app);
 const auth = getAuth(app);
