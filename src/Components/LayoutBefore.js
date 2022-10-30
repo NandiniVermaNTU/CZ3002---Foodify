@@ -1,6 +1,5 @@
 import Footer from "./Footer";
 import SideMenu from "./SideMenu";
-import Sidebar from "./Sidebar";
 import "../ComponentsCSS/SideMenu.css";
 import "../ComponentsCSS/Layout.css";
 import "../PagesCSS/Home.css";

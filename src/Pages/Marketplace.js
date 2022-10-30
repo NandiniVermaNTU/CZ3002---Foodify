@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import {Link, createSearchParams, useNavigate, NavLink} from "react-router-dom";
 import "../PagesCSS/Marketplace.css";
-import Post from "../Components/Post.js";
+import "../ComponentsCSS/Post.css";
 import Layout from "../Components/Layout";
 
 import db from '../firebase/firebase';
 import { auth } from "../firebase/firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs,  addDoc, where } from "firebase/firestore";
+
 
 import pic1 from "../Images/chat-icon.png";
 import "../Pages/Chat.js";

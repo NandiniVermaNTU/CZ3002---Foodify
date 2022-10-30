@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import Post from "../Components/Post.js";
 import "../PagesCSS/Marketplace.css";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import Layout from "../Components/Layout";

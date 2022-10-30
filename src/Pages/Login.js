@@ -62,14 +62,6 @@ useEffect(() => {
               required
             ></input>
           </div>
-          {/* <div class="text-sm">
-            <a
-              href="/forgetpassword"
-              class="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              &emsp; &emsp; &emsp; Forgot your password?
-            </a>
-          </div> */}
           <button
             //type="submit"
             // className="login__btn"
