@@ -2,11 +2,7 @@ import React, { Fragment, useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import axios from 'axios';
 import RecipeContent from './RecipeContent';
-// import RecipeContentPlaceholder from './RecipeContentPlaceholder';
-// import Error from './Error';
-// import FaveHeart from './FaveHeart';
 import Popup from 'reactjs-popup';
-// import expand from './../images/expand.svg';
 
 const apiKey = "cd8ff5193bbd492ea78b3a1d3f177137";
 const baseURL = 'https://api.spoonacular.com';

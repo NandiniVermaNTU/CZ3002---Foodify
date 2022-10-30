@@ -3,8 +3,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db, logout } from "../firebase/firebase.js";
 import { query, collection, getDocs, where } from "firebase/firestore";
-//
-//import { Link } from "react-router-dom";
 import "../PagesCSS/Home.css";
 import { NavLink } from "react-router-dom";
 import Layout from "../Components/Layout.js";
@@ -41,11 +39,6 @@ export default function Profile() {
         </div>
 
         <div class="bg-white px-8 py-6 pb-8 mb-4 bg-gray-100 ">
-        {/* <div class="mb-6">
-            <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">
-              Username
-            </label>
-          </div> */}
           <div class="mb-6">
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
               Email: {user?.email}
@@ -69,14 +62,6 @@ export default function Profile() {
         <div class="flex px-5 justify-center lg:justify-start">
             <a class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" href="/editprofile">Edit Profile</a>
         </div>
-
-        {/* <div class="flex px-5 justify-center lg:justify-start">
-            <a class="flex-grow mx-4 my-3 px-4 py-3 bg-red-400 text-white text-sm font-semibold rounded hover:bg-red-600" href="/deleteaccount">Delete Account</a>
-        </div> */}
-
-
-
-
 
     </section>
 

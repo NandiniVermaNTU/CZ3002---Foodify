@@ -7,7 +7,6 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase/firebase.js";
-//import React, { Component } from "react";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -80,17 +79,6 @@ function SignUp() {
               placeholder="Full Name"
             ></input>
           </div>
-
-          {/* <div class="mb-6">
-            <label class="block mb-2 bg-general-colortext-sm font-medium text-gray-900 dark:text-gray-300">
-              Phone Number
-            </label>
-            <input
-              id="phone"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="+65 xxxx xxxx"
-            ></input>
-          </div> */}
 
           <div class="mb-6">
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">

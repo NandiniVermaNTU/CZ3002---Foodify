@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, sendPasswordReset } from "../firebase/firebase.js";
-// import React, { useState } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import Layout from "../Components/Layout";
 import "../PagesCSS/Home.css";

@@ -4,7 +4,6 @@ import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css"
 import Layout from "../Components/Layout";
 import "..//ComponentsCSS/SideMenu.css";
-// import { collection, addDoc } from 'firebase/firestore';
 import db from '../firebase/firebase';
 import { auth } from "../firebase/firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -92,22 +91,10 @@ export default function AddFoodItem() {
                             required
                             onChange={(e) => setQuantity(e.target.value)}></input>
                 </div>
-                {/* <div class="mb-6">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label> */}
-                    {/* <input id="food-description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="still fresh"></input> */}
-                    {/* <input datetimepicker class="focus:shadow-soft-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" type="text" placeholder="Please select a date" />
-                </div> */}
                 
                 <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Expiry date / best before</label>
                     <div class="relative">
-
-                        {/* <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                        </div> */}
-                        {/* <input datepicker 
-                            type="text" 
-                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select expiry date"></input> */}
                         <div class="datepicker relative form-floating mb-3 xl:w-96" data-mdb-toggle-button="false">
                             <input type="date"
                             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -128,8 +115,6 @@ export default function AddFoodItem() {
             </form>
             
         </div>
-
-        {/* <script src="https://unpkg.com/flowbite@{{< current_version >}}/dist/datepicker.js"></script> */}
 
         </>
 

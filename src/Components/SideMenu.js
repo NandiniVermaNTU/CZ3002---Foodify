@@ -47,32 +47,6 @@ function SideMenu() {
                     </NavLink>
                   </li>
 
-                  {/* To Sign In page */}
-                  {/* <li className="navbar-list-mobile">
-                    <NavLink
-                      className="navbar-items-mobile"
-                      to="/signin"
-                      style={({ isActive }) =>
-                        isActive ? activeStyle : undefined
-                      }
-                    >
-                      Sign In
-                    </NavLink>
-                  </li> */}
-
-                  {/* To Sign Up page */}
-                  {/* <li className="navbar-list-mobile">
-                    <NavLink
-                      className="navbar-items-mobile"
-                      to="/signup"
-                      style={({ isActive }) =>
-                        isActive ? activeStyle : undefined
-                      }
-                    >
-                      Sign Up
-                    </NavLink>
-                  </li> */}
-
                   {/* To Add Food Item page */}
                   <li className="navbar-list-mobile">
                     <NavLink

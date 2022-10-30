@@ -3,9 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db, logout } from "../firebase/firebase.js";
 import { query, collection, getDocs, where } from "firebase/firestore";
-//
-//import React from "react";
-//import { Link } from "react-router-dom";
+
 import "../PagesCSS/Home.css";
 import pic1 from "../Images/FoodifyBckgd.jpg";
 import pic2 from "../Images/HomeImg2.jpg";
@@ -70,22 +68,15 @@ function Home() {
         <br />
 
         <div class="flex px-5 justify-center lg:justify-centers">
-          {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">Logged in as</div> */}
           <div class="font-medium text-indigo-600 hover:text-indigo-500">
             Logged in as: {name}
           </div>
-          {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">{user?.email}</div> */}
-          {/* <button class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200" onClick={logout}> */}
-          {/* Logout */}
-          {/* </button> */}
         </div>
         <br />
         <div class="flex px-5 justify-center lg:justify-centers">
-          {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">Logged in as</div> */}
           <div class="font-medium text-indigo-600 hover:text-indigo-500">
             {user?.email}
           </div>
-          {/* <div class="flex-grow mx-4 my-3 px-4 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200">{user?.email}</div> */}
         </div>
         <button
           class="flex-grow mx-14 my-3 px-6 py-3 bg-gray-200 text-gray-500 text-sm font-semibold rounded hover:bg-gray-200"

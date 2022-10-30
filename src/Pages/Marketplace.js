@@ -103,33 +103,11 @@ function Marketplace() {
           <a  class="focus:outline-none text-xs md:text-sm leading-none text-white dark:text-gray-200" href='/sellfooditem'>+ Post on the market</a>
       </div>
 
-      {/* Searchbar */}
-      {/* <div class="flex pt-1 pb-2 pl-1 pr-1">
-            <input
-              type="text"
-              id = "searchbar"
-              class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search food item"
-              required
-            ></input>
-      </div> */}
-
-      
-
-      {/* Post */}
-      {/* <div class="flex pt-1 pb-2 pl-1"> */}
-
-      {/* <div class="flex pt-1 pb-2 pl-1.5"> */}
-      {/* <div class="flex pt-1 pb-2 pl-1"> */}
       {Posts.map(post => (
             <div class="w-full px-5 pt-5 item-center">
                 <div class="border rounded-lg border border-gray-200 dark:border-gray-700 ">
                     <table class="w-full">
                         <tbody>  
-                            {/* <li key={recipe.title}> */}
-                                {/* {fetchMissIngredient} */}
                                 <tr tabindex="0" class="focus:outline-none flex-auto ">
                                     <td>
                                         <div class="bg-lime-100">
@@ -165,18 +143,6 @@ function Marketplace() {
                 </div>
             </div>
             ))}        
-
-            {/* <Post title={post.title} 
-                  name={post.sellerName}
-                  email={post.sellerEmail}
-                  foodItem={post.foodItemName}
-                  quantity={post.foodItemQuantity}
-                  expiry={post.foodItemExpiryDate}
-                  price={post.price}
-                  status={post.status}
-                  description={post.description}></Post>  */}
-        
-      {/* </div> */}
 
     </section>
     );
