@@ -69,14 +69,14 @@ useEffect(() => {
               required
             ></input>
           </div>
-          <div class="text-sm">
+          {/* <div class="text-sm">
             <a
               href="/forgetpassword"
               class="font-medium text-indigo-600 hover:text-indigo-500"
             >
               &emsp; &emsp; &emsp; Forgot your password?
             </a>
-          </div>
+          </div> */}
           <button
             //type="submit"
             // className="login__btn"
@@ -85,7 +85,6 @@ useEffect(() => {
           >
             Login
           </button>
-
           <div class="text-sm"> <br/>&emsp; &emsp; &emsp;&emsp;&emsp; New to Foodify
             <a
               href="/signup"

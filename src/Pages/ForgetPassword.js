@@ -16,10 +16,10 @@ function ForgetPassword() {
   const [email, setEmail] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  useEffect(() => {
-    if (loading) return;
-    if (user) navigate("/home");
-  }, [user, loading]);
+  // useEffect(() => {
+  //   if (loading) return;
+  //   if (user) navigate("/home");
+  // }, [user, loading]);
   return (
     <section>
       <Layout/>

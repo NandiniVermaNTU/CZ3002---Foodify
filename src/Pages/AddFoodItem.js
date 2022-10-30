@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import {Link, useNavigate, NavLink} from "react-router-dom";
 import "../PagesCSS/Home.css";
 import "../PagesCSS/Myitem.css"
@@ -11,13 +11,16 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs,  addDoc, where } from "firebase/firestore";
 
 export default function AddFoodItem() {
-    const [name, setName] = useState();
-    const [quantity, setQuantity] = useState();
-    const [expiryDate, setExpiryDate] = useState();
+    const [name, setName] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [expiryDate, setExpiryDate] = useState("");
 
-    const [userName, setUserName] = useState();
-    const [userEmail, setUserEmail] = useState();
-    const [userID, setUserID] = useState();
+    const [userName, setUserName] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+    const [userID, setUserID] = useState("");
+
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
+
 
 
     const [user, loading, error] = useAuthState(auth);
@@ -45,12 +48,14 @@ export default function AddFoodItem() {
         if (loading) return;
         if (!user) return navigate("/");
         fetchUserName();
+        forceUpdate();
     }, [user, loading]);
 
 
-    const Push = () => {
+    const Push = async () => {
+        forceUpdate();
         try {
-            const docRef = addDoc(collection(db, "food-items"), {
+            const docRef = await addDoc(collection(db, "food-items"), {
             name : name,
             quantity : quantity,
             expiryDate : expiryDate,

@@ -7,7 +7,7 @@ import Layout from "../Components/Layout";
 import db from '../firebase/firebase';
 import { auth } from "../firebase/firebase.js";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { query, collection, getDocs,  addDoc, where } from "firebase/firestore";
+import { query, collection, getDocs,  addDoc, where, deleteDoc, doc } from "firebase/firestore";
 
 function Myitem() {
     const [foodItems, setFoodItems] = useState(
@@ -26,6 +26,9 @@ function Myitem() {
     const [userName, setUserName] = useState();
     const [userEmail, setUserEmail] = useState();
     const [userID, setUserID] = useState();
+
+    const [chosenItem, setChosenItem] = useState("a");
+    const [chosenItemID, setChosenItemID] = useState("");
 
     const [user, loading, error] = useAuthState(auth);
 
@@ -68,6 +71,42 @@ function Myitem() {
             alert("An error occured while fetching user data");
         }
     };
+
+    const fetchChosenItem = async () => {
+        try {
+            // const q = db.collection("food-items").where("userID", "==", user?.uid).where("name", "==", chosenItem);
+            const q = query(collection(db, "food-items"), where("userID", "==", user?.uid), where("name", "==", chosenItem));
+            const doc = await getDocs(q);
+            const data = doc.docs[0].data();
+            // setChosenItemQuantity(data.quantity);
+            // setChosenItemExpiryDate(data.expiryDate);
+            console.log(data.id);
+            return data.id;
+        } catch (err) {
+            console.error(err);
+            // alert("An error occured while fetching user data fetchData");
+        }
+    };
+
+    const deleteChosenItem = () => {
+        console.log("check before delete, id", chosenItemID);
+        deleteDoc(doc(db, "food-items", chosenItemID))
+        .then(() => {
+            console.log("Item delted, item id=", chosenItemID)
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+
+
+    useEffect(() => {
+        if (loading) return;
+        let id = fetchChosenItem();
+        setChosenItemID(id);
+        console.log("chosenitemid", chosenItemID);
+    }, [chosenItem, loading]);
+
     
     useEffect(() => {
         if (loading) return;
@@ -137,10 +176,29 @@ function Myitem() {
             </div>
         </div>
         
-        <div class="flex justify-center lg:justify-start mt-10 px-5 italic">Food already consumed or expires? Delete now</div>
-        <div class="flex justify-center lg:justify-start mt-5 px-5">
-            <a class="px-4 py-3 bg-red-300 text-white text-sm font-semibold rounded hover:bg-teal-700" href="/deleteitems">Delete food items</a>
-        </div>
+        {/* <div class="flex justify-center lg:justify-start mt-10 px-5 italic">Food already consumed or expires? Delete now</div>
+        <div class="mb-6">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Food Item</label> */}
+                    {/* <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button> */}
+                    {/* <input id="fooditem" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="optional"
+                        onChange={(e) => setDescription(e.target.value)}></input> */}
+                    {/* <select id="fooditems" 
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            onChange={(e) => setChosenItem(e.target.value)}
+                            >
+                        <option selected>Choose an item</option>
+                        {foodItems.map(foodItem => (
+                            <option key={foodItem.name} value={foodItem.name}>{foodItem.quanity} {foodItem.name}, expiry {foodItem.expiryDate}</option>
+                        ))}
+                    </select>
+                </div>
+                <div class="flex justify-center lg:justify-start mt-5 px-5">
+                    <button class="px-4 py-3 bg-red-300 text-white text-sm font-semibold rounded hover:bg-teal-700" 
+                    onClick={()=>{deleteChosenItem()}}>Delete</button>
+                </div> */}
+        
 
 
         <div class="flex justify-center lg:justify-start mt-10 px-5 italic">Want to make a meal from these items?</div>
